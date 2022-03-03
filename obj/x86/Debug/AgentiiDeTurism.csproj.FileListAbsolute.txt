@@ -1,0 +1,6 @@
+C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\bin\Debug\ConsoleApplication.exe
+C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\bin\Debug\ConsoleApplication.pdb
+C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\AgentiiDeTurism.csproj.AssemblyReference.cache
+C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\AgentiiDeTurism.csproj.CoreCompileInputs.cache
+C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\ConsoleApplication.exe
+C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\ConsoleApplication.pdb
