@@ -1,6 +1,5 @@
 package repository;
 
-import domain.Agency;
 import domain.Pair;
 import domain.Reservation;
 import domain.Trip;
