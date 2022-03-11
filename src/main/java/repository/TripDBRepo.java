@@ -6,7 +6,6 @@ import org.apache.logging.log4j.Logger;
 import utils.JdbcUtils;
 
 import java.sql.*;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -70,8 +69,8 @@ public class TripDBRepo implements TripRepo {
     public void update(Trip elem, Integer id) {
         logger.traceEntry();
         Connection con = dbUtils.getConnection();
-        String command = "update " + tableName + " set tourist_attraction = ?, transport_company = ? " +
-                "departure_time = ?, price = ?, seats = ? where id = ?";
+        String command = "update " + tableName +" set tourist_attraction = ?, transport_company = ?," +
+                " departure_time = ?, price = ?, seats = ? where id = ?";
         try (PreparedStatement ps = con.prepareStatement(command)) {
             ps.setString(1, elem.getTouristAttraction());
             ps.setString(2, elem.getTransportCompany());
@@ -153,13 +152,16 @@ public class TripDBRepo implements TripRepo {
     }
 
     @Override
-    public Collection<Trip> getTouristAttractionTrips(String touristAttraction, LocalTime startTime, LocalTime endTime) {
+    public Collection<Trip> getTouristAttractionTrips(String touristAttraction, Time startTime, Time endTime) {
         logger.traceEntry();
         Connection con = dbUtils.getConnection();
-        String command = "select * from " + tableName + " where tourist_attraction = ?";
+        String command = "select * from " + tableName +
+                " where tourist_attraction = ? and departure_time between ? and ?";
         List<Trip> trips = new ArrayList<>();
         try (PreparedStatement ps = con.prepareStatement(command)) {
             ps.setString(1, touristAttraction);
+            ps.setTime(2, startTime);
+            ps.setTime(3, endTime);
             ResultSet res = ps.executeQuery();
             while (res.next()) {
                 int id = res.getInt("id");

@@ -33,4 +33,9 @@ public class Agency implements Identifiable<Integer> {
     public String getPassword() {
         return password;
     }
+
+    @Override
+    public String toString() {
+        return "Agency: " + name;
+    }
 }

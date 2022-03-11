@@ -2,9 +2,9 @@ package repository;
 
 import domain.Trip;
 
-import java.time.LocalTime;
+import java.sql.Time;
 import java.util.Collection;
 
 public interface TripRepo extends RepoInterface<Trip, Integer> {
-    Collection<Trip> getTouristAttractionTrips(String touristAttraction, LocalTime startTime, LocalTime endTime);
+    Collection<Trip> getTouristAttractionTrips(String touristAttraction, Time startTime, Time endTime);
 }
