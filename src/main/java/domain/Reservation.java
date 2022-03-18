@@ -1,5 +1,7 @@
 package domain;
 
+import utils.Pair;
+
 public class Reservation implements Identifiable<Pair<String, Trip>> {
     private String client;
     private Trip trip;
@@ -54,5 +56,11 @@ public class Reservation implements Identifiable<Pair<String, Trip>> {
 
     public void setSeats(int seats) {
         this.seats = seats;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation by " + this.client + " on trip to " + this.trip.getTouristAttraction()
+                + " for " + this.seats + " seats";
     }
 }

@@ -32,8 +32,8 @@ public class TripDBRepo implements TripRepo {
         try (PreparedStatement ps = con.prepareStatement(command)) {
             ps.setString(1, elem.getTouristAttraction());
             ps.setString(2, elem.getTransportCompany());
-            ps.setTime(3, elem.getDepartureTime());
-            ps.setFloat(4, elem.getPrice());
+            ps.setString(3, elem.getDepartureTime().toString());
+            ps.setDouble(4, elem.getPrice());
             ps.setInt(5, elem.getSeats());
             int result = ps.executeUpdate();
             logger.trace("Saved {} instances", result);
@@ -74,8 +74,8 @@ public class TripDBRepo implements TripRepo {
         try (PreparedStatement ps = con.prepareStatement(command)) {
             ps.setString(1, elem.getTouristAttraction());
             ps.setString(2, elem.getTransportCompany());
-            ps.setTime(3, elem.getDepartureTime());
-            ps.setFloat(4, elem.getPrice());
+            ps.setString(3, elem.getDepartureTime().toString());
+            ps.setDouble(4, elem.getPrice());
             ps.setInt(5, elem.getSeats());
             ps.setInt(6, id);
             int result = ps.executeUpdate();
@@ -99,10 +99,10 @@ public class TripDBRepo implements TripRepo {
             res.next();
             String touristAttraction = res.getString("tourist_attraction");
             String transportCompany = res.getString("transport_company");
-            Time departureTime = res.getTime("departure_time");
-            float price = res.getFloat("price");
+            String departureTime = res.getString("departure_time");
+            double price = res.getDouble("price");
             int seats = res.getInt("seats");
-            trip = new Trip(id, touristAttraction, transportCompany, departureTime, price, seats);
+            trip = new Trip(id, touristAttraction, transportCompany, Time.valueOf(departureTime), price, seats);
         } catch (SQLException e) {
             logger.error(e);
             System.err.println("Error DB: " + e);
@@ -138,10 +138,10 @@ public class TripDBRepo implements TripRepo {
                 int id = res.getInt("id");
                 String touristAttraction = res.getString("tourist_attraction");
                 String transportCompany = res.getString("transport_company");
-                Time departureTime = res.getTime("departure_time");
-                float price = res.getFloat("price");
+                String departureTime = res.getString("departure_time");
+                double price = res.getDouble("price");
                 int seats = res.getInt("seats");
-                trips.add(new Trip(id, touristAttraction, transportCompany, departureTime, price, seats));
+                trips.add(new Trip(id, touristAttraction, transportCompany, Time.valueOf(departureTime), price, seats));
             }
         } catch (SQLException e) {
             logger.error(e);
@@ -156,26 +156,26 @@ public class TripDBRepo implements TripRepo {
         logger.traceEntry();
         Connection con = dbUtils.getConnection();
         String command = "select * from " + tableName +
-                " where tourist_attraction = ? and departure_time between ? and ?";
+                " where tourist_attraction = ?";
         List<Trip> trips = new ArrayList<>();
         try (PreparedStatement ps = con.prepareStatement(command)) {
             ps.setString(1, touristAttraction);
-            ps.setTime(2, startTime);
-            ps.setTime(3, endTime);
             ResultSet res = ps.executeQuery();
             while (res.next()) {
                 int id = res.getInt("id");
                 String transportCompany = res.getString("transport_company");
-                Time departureTime = res.getTime("departure_time");
-                float price = res.getFloat("price");
+                String departureTime = res.getString("departure_time");
+                double price = res.getDouble("price");
                 int seats = res.getInt("seats");
-                trips.add(new Trip(id, touristAttraction, transportCompany, departureTime, price, seats));
+                trips.add(new Trip(id, touristAttraction, transportCompany, Time.valueOf(departureTime), price, seats));
             }
         } catch (SQLException e) {
             logger.error(e);
             System.err.println("Error DB: " + e);
         }
         logger.traceExit();
-        return trips;
+        return trips.stream()
+                .filter(t -> t.getDepartureTime().after(startTime)
+                        && t.getDepartureTime().before(endTime)).toList();
     }
 }

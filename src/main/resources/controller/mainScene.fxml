@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="545.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainSceneController">
+   <children>
+      <VBox>
+         <children>
+            <Label alignment="CENTER" prefHeight="18.0" prefWidth="200.0" text="Agencies" />
+            <ListView fx:id="listAgencies" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="301.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="200.0" prefHeight="322.0" prefWidth="474.0">
+         <children>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="50.0" text="Trips" />
+            <TableView fx:id="tableTrips" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="301.0" prefWidth="306.0">
+              <columns>
+                <TableColumn fx:id="columnTripAttraction" prefWidth="101.59991455078125" text="Destination" />
+                <TableColumn fx:id="columnTripCompany" prefWidth="82.39996337890625" text="Company" />
+                  <TableColumn fx:id="columnTripDepartureTime" prefWidth="166.39999389648438" text="Departure time" />
+                  <TableColumn fx:id="columnTripPrice" prefWidth="59.20001220703125" text="Price" />
+                  <TableColumn fx:id="columnTripSeats" prefWidth="45.60003662109375" text="Seats" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox layoutX="674.0" layoutY="1.0" prefHeight="320.0" prefWidth="235.0">
+         <children>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Reservations" />
+            <TableView fx:id="tableReservations" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="314.0" prefWidth="234.0">
+              <columns>
+                <TableColumn fx:id="columnResClient" prefWidth="75.0" text="Client" />
+                <TableColumn fx:id="columnResTrip" prefWidth="108.7999267578125" text="Trip" />
+                  <TableColumn fx:id="columnResSeats" prefWidth="42.4000244140625" text="Seats" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox layoutX="200.0" layoutY="320.0">
+         <children>
+            <ComboBox fx:id="comboBoxTripLocation" onAction="#onChangeLocation" prefHeight="26.0" prefWidth="175.0" promptText="select destination" />
+            <TextField fx:id="textFieldAfter" prefHeight="26.0" prefWidth="175.0" promptText="after (hh:mm:ss)" />
+            <TextField fx:id="textFieldBefore" prefHeight="26.0" prefWidth="175.0" promptText="before (hh:mm:ss)" />
+            <Button fx:id="buttonSearch" mnemonicParsing="false" onAction="#onButtonSearchClick" prefHeight="26.0" prefWidth="175.0" text="Search" />
+         </children>
+      </VBox>
+      <VBox layoutX="491.0" layoutY="320.0" prefHeight="78.0" prefWidth="182.0">
+         <children>
+            <TextField fx:id="textFieldClient" alignment="TOP_LEFT" promptText="client name" />
+            <TextField fx:id="textFieldSeats" promptText="number of seats" />
+            <TextField fx:id="textFieldPhoneNumber" promptText="phone number" />
+            <Button fx:id="buttonReserve" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onButtonReserveClick" prefHeight="26.0" prefWidth="150.0" text="Reserve" textAlignment="CENTER" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

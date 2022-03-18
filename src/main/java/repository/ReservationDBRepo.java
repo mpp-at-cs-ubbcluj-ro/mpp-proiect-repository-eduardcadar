@@ -1,6 +1,6 @@
 package repository;
 
-import domain.Pair;
+import utils.Pair;
 import domain.Reservation;
 import domain.Trip;
 import org.apache.logging.log4j.LogManager;
