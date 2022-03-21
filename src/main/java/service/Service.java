@@ -11,9 +11,9 @@ import java.util.Collection;
 import java.util.List;
 
 public class Service {
-    AgencyService agencySrv;
-    TripService tripSrv;
-    ReservationService resSrv;
+    private AgencyService agencySrv;
+    private TripService tripSrv;
+    private ReservationService resSrv;
 
     public Service(AgencyService agencySrv, TripService tripSrv, ReservationService resSrv) {
         this.agencySrv = agencySrv;

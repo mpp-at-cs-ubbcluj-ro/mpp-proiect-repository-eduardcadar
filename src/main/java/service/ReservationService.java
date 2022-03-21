@@ -8,7 +8,7 @@ import utils.Pair;
 import java.util.Collection;
 
 public class ReservationService {
-    ReservationRepo repo;
+    private ReservationRepo repo;
 
     public ReservationService(ReservationRepo repo) {
         this.repo = repo;

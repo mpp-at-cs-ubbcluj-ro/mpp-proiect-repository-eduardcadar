@@ -6,7 +6,7 @@ import repository.AgencyRepo;
 import java.util.Collection;
 
 public class AgencyService {
-    AgencyRepo repo;
+    private AgencyRepo repo;
 
     public AgencyService(AgencyRepo repo) {
         this.repo = repo;

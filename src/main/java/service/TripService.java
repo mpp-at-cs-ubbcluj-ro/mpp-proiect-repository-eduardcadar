@@ -7,7 +7,7 @@ import java.sql.Time;
 import java.util.Collection;
 
 public class TripService {
-    TripRepo repo;
+    private TripRepo repo;
 
     public TripService(TripRepo repo) {
         this.repo = repo;
