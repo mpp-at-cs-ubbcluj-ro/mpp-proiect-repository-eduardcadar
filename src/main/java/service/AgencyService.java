@@ -15,4 +15,6 @@ public class AgencyService {
     public Collection<Agency> getAllAgencies() {
         return repo.getAll();
     }
+
+    public Agency getByName(String name) { return repo.getByName(name); }
 }

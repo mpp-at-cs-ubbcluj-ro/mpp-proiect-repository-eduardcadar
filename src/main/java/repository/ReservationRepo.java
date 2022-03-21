@@ -5,4 +5,5 @@ import domain.Reservation;
 import domain.Trip;
 
 public interface ReservationRepo extends RepoInterface<Reservation, Pair<String, Trip>> {
+    int getAvailableSeatsForTrip(Trip trip);
 }

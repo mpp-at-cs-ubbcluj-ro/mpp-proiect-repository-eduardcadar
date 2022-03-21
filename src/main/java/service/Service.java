@@ -3,9 +3,12 @@ package service;
 import domain.Agency;
 import domain.Reservation;
 import domain.Trip;
+import utils.TripDTO;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class Service {
     AgencyService agencySrv;
@@ -35,4 +38,19 @@ public class Service {
     public Collection<Reservation> getAllReservations() { return resSrv.getAllReservations(); }
 
     public Trip getTrip(int id) { return tripSrv.getTrip(id); }
+
+    public Agency getAgencyByName(String name) { return agencySrv.getByName(name); }
+
+    public int getAvailableSeatsForTrip(Trip trip) { return resSrv.getAvailableSeatsForTrip(trip); }
+
+    public Collection<TripDTO> getTripDTOs(Collection<Trip> trips) {
+        List<TripDTO> tripDTOs = new ArrayList<>();
+        trips.forEach(t -> {
+                    int availableSeats = resSrv.getAvailableSeatsForTrip(t);
+                    TripDTO tripDTO = new TripDTO(t.getId(), t.getTouristAttraction(), t.getTransportCompany(),
+                            t.getDepartureTime(), t.getPrice(), availableSeats);
+                    tripDTOs.add(tripDTO);
+                });
+        return tripDTOs;
+    }
 }

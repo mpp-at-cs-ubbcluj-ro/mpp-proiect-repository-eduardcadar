@@ -149,4 +149,23 @@ public class ReservationDBRepo implements ReservationRepo {
         logger.traceExit();
         return reservations;
     }
+
+    @Override
+    public int getAvailableSeatsForTrip(Trip trip) {
+        logger.traceEntry();
+        int reservedSeats = 0;
+        Connection con = dbUtils.getConnection();
+        String command = "select sum(seats) as reserved_seats from " + tableName + " where id_trip = ?";
+        try (PreparedStatement ps = con.prepareStatement(command)) {
+            ps.setInt(1, trip.getId());
+            ResultSet res = ps.executeQuery();
+            res.next();
+            reservedSeats = res.getInt("reserved_seats");
+        } catch (SQLException e) {
+            logger.error(e);
+            System.err.println("Error DB: " + e);
+        }
+        logger.traceExit();
+        return trip.getSeats() - reservedSeats;
+    }
 }

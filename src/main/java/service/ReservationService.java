@@ -19,4 +19,6 @@ public class ReservationService {
     }
 
     public Collection<Reservation> getAllReservations() { return repo.getAll(); }
+
+    public int getAvailableSeatsForTrip(Trip trip) { return repo.getAvailableSeatsForTrip(trip); }
 }

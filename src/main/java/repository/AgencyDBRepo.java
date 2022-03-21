@@ -138,4 +138,27 @@ public class AgencyDBRepo implements AgencyRepo {
         logger.traceExit();
         return agencies;
     }
+
+    @Override
+    public Agency getByName(String name) {
+        logger.traceEntry();
+        Connection con = dbUtils.getConnection();
+        String command = "select * from " + tableName + " where name = ?";
+        Agency agency = null;
+        try (PreparedStatement ps = con.prepareStatement(command)) {
+            ps.setString(1, name);
+            ResultSet res = ps.executeQuery();
+            res.next();
+            int id = res.getInt("id");
+            String password = res.getString("password");
+            agency = new Agency(id, name, password);
+        } catch (SQLException e) {
+            logger.error(e);
+            System.err.println("Error DB: " + e);
+        }
+        if (agency == null)
+            throw new MyException("No agency with this name!");
+        logger.traceExit();
+        return agency;
+    }
 }

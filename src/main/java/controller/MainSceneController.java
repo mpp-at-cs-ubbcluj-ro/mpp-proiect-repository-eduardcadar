@@ -3,12 +3,20 @@ package controller;
 import domain.Agency;
 import domain.Reservation;
 import domain.Trip;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import service.Service;
+import utils.MyAlert;
+import utils.TripDTO;
 
+import java.io.IOException;
 import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,22 +24,29 @@ import java.util.Set;
 
 public class MainSceneController {
     private Service srv;
+    private Agency loggedAgency;
+
+    @FXML
+    AnchorPane anchorPane;
+
+    @FXML
+    Label agencyLabel;
 
     @FXML
     ListView<Agency> listAgencies;
 
     @FXML
-    TableView<Trip> tableTrips;
+    TableView<TripDTO> tableTrips;
     @FXML
-    TableColumn<Trip, String> columnTripAttraction;
+    TableColumn<TripDTO, String> columnTripAttraction;
     @FXML
-    TableColumn<Trip, String> columnTripCompany;
+    TableColumn<TripDTO, String> columnTripCompany;
     @FXML
-    TableColumn<Trip, Time> columnTripDepartureTime;
+    TableColumn<TripDTO, Time> columnTripDepartureTime;
     @FXML
-    TableColumn<Trip, Double> columnTripPrice;
+    TableColumn<TripDTO, Double> columnTripPrice;
     @FXML
-    TableColumn<Trip, Integer> columnTripSeats;
+    TableColumn<TripDTO, Integer> columnTripAvailableSeats;
 
     @FXML
     TableView<Reservation> tableReservations;
@@ -59,13 +74,17 @@ public class MainSceneController {
     TextField textFieldSeats;
     @FXML
     Button buttonReserve;
+    @FXML
+    Button buttonLogout;
 
     private String currentTripLocation;
     private String tripAfterTime;
     private String tripBeforeTime;
 
-    public void initialize(Service srv) {
+    public void initialize(Service srv, Agency agency) {
         this.srv = srv;
+        this.loggedAgency = agency;
+        this.agencyLabel.setText(agency.toString());
         reloadAgenciesList();
         currentTripLocation = "";
         initializeTripsTable();
@@ -88,16 +107,29 @@ public class MainSceneController {
     }
 
     private void initializeTripsTable() {
+        tableTrips.setRowFactory(tv -> new TableRow<>() {
+            @Override
+            protected void updateItem(TripDTO item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null)
+                    setStyle("");
+                else if (item.getAvailableSeats() <= 0)
+                    setStyle("-fx-background-color: red;");
+                else
+                    setStyle("");
+            }
+        });
+
         columnTripAttraction.setCellValueFactory(new PropertyValueFactory<>("touristAttraction"));
         columnTripCompany.setCellValueFactory(new PropertyValueFactory<>("transportCompany"));
         columnTripDepartureTime.setCellValueFactory(new PropertyValueFactory<>("departureTime"));
         columnTripPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        columnTripSeats.setCellValueFactory(new PropertyValueFactory<>("seats"));
+        columnTripAvailableSeats.setCellValueFactory(new PropertyValueFactory<>("availableSeats"));
     }
 
     private void reloadTripsTable() {
         if (currentTripLocation.isBlank())
-            tableTrips.getItems().setAll(srv.getAllTrips());
+            tableTrips.getItems().setAll(srv.getTripDTOs(srv.getAllTrips()));
         else {
             Time timeAfter;
             Time timeBefore;
@@ -108,8 +140,8 @@ public class MainSceneController {
                 timeAfter = Time.valueOf("00:00:00");
                 timeBefore = Time.valueOf("23:59:59");
             }
-            tableTrips.getItems().setAll(srv.getTouristAttractionTrips(
-                    currentTripLocation, timeAfter, timeBefore));
+            tableTrips.getItems().setAll(srv.getTripDTOs(srv.getTouristAttractionTrips(
+                    currentTripLocation, timeAfter, timeBefore)));
         }
     }
 
@@ -139,11 +171,28 @@ public class MainSceneController {
 
     @FXML
     private void onButtonReserveClick() {
+        if (tableTrips.getSelectionModel().getSelectedItems().isEmpty())
+            return;
+
         String client = textFieldClient.getText();
         Trip trip = srv.getTrip(tableTrips.getSelectionModel().getSelectedItem().getId());
         int seats = Integer.parseInt(textFieldSeats.getText());
         String phoneNumber = textFieldPhoneNumber.getText();
+        if (tableTrips.getSelectionModel().getSelectedItem().getAvailableSeats() < seats) {
+            MyAlert.StartAlert("Error", "Not enough seats left!", Alert.AlertType.ERROR);
+            return;
+        }
         srv.saveReservation(client, trip, phoneNumber, seats);
         reloadReservationsTable();
+    }
+
+    @FXML
+    private void onButtonLogoutClick() throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainSceneController.class.getResource("loginScene.fxml"));
+        Parent root = loader.load();
+        LoginSceneController controller = loader.getController();
+        controller.initialize(this.srv);
+        Stage stage = (Stage)anchorPane.getScene().getWindow();
+        stage.getScene().setRoot(root);
     }
 }
