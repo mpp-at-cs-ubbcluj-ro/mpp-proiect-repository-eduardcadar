@@ -8,5 +8,6 @@ namespace AgentiiDeTurism.src.repository
 {
     public interface IAgencyRepo : IRepoInterface<Agency, int>
     {
+        Agency getByName(string name);
     }
 }

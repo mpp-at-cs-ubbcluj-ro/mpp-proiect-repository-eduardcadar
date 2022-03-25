@@ -8,5 +8,6 @@ namespace AgentiiDeTurism.src.repository
 {
     public interface IReservationRepo : IRepoInterface<Reservation, Tuple<string, Trip>>
     {
+        int getAvailableSeatsForTrip(Trip trip);
     }
 }

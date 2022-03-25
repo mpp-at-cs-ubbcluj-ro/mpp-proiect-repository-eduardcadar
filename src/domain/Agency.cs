@@ -7,36 +7,36 @@ namespace AgentiiDeTurism.src.domain
 {
     public class Agency : IIdentifiable<int>
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string password { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
         
         public Agency(string name, string password)
         {
-            this.name = name;
-            this.password = password;
+            this.Name = name;
+            this.Password = password;
         }
 
         public Agency(int id, string name, string password)
         {
-            this.id = id;
-            this.name = name;
-            this.password = password;
+            this.Id = id;
+            this.Name = name;
+            this.Password = password;
         }
 
         public int getId()
         {
-            return this.id;
+            return this.Id;
         }
 
         public void setId(int id)
         {
-            this.id = id;
+            this.Id = id;
         }
 
         public override string ToString()
         {
-            return "id=" + this.id + "; name=" + this.name + "; password=" + this.password;
+            return this.Name;
         }
     }
 }

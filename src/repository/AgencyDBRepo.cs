@@ -31,7 +31,7 @@ namespace AgentiiDeTurism.src.repository
 
         public void delete(Agency elem)
         {
-            deleteById(elem.id);
+            deleteById(elem.Id);
         }
 
         public void deleteById(int id)
@@ -120,12 +120,12 @@ namespace AgentiiDeTurism.src.repository
                 
                 IDbDataParameter paramName = comm.CreateParameter();
                 paramName.ParameterName = "@name";
-                paramName.Value = elem.name;
+                paramName.Value = elem.Name;
                 comm.Parameters.Add(paramName);
                 
                 IDbDataParameter paramPassword = comm.CreateParameter();
                 paramPassword.ParameterName = "@password";
-                paramPassword.Value = elem.password;
+                paramPassword.Value = elem.Password;
                 comm.Parameters.Add(paramPassword);
 
                 int result = comm.ExecuteNonQuery();
@@ -133,7 +133,6 @@ namespace AgentiiDeTurism.src.repository
             }
             log.Info("Exiting save");
         }
-
         public void update(Agency elem, int id)
         {
             log.InfoFormat("Entering update with values {0}, id = {1}", elem, id);
@@ -145,12 +144,12 @@ namespace AgentiiDeTurism.src.repository
 
                 IDbDataParameter paramName = comm.CreateParameter();
                 paramName.ParameterName = "@name";
-                paramName.Value = elem.name;
+                paramName.Value = elem.Name;
                 comm.Parameters.Add(paramName);
 
                 IDbDataParameter paramPassword = comm.CreateParameter();
                 paramPassword.ParameterName = "@password";
-                paramPassword.Value = elem.password;
+                paramPassword.Value = elem.Password;
                 comm.Parameters.Add(paramPassword);
                 
                 IDbDataParameter paramId = comm.CreateParameter();
@@ -162,6 +161,35 @@ namespace AgentiiDeTurism.src.repository
                 log.InfoFormat("Updated {0} agencies", result);
             }
             log.Info("Exiting update");
+        }
+
+        public Agency getByName(string name)
+        {
+            log.InfoFormat("Entering getByName with value {0}", name);
+            IDbConnection con = DBUtils.GetConnection(props);
+
+            using (var comm = con.CreateCommand())
+            {
+                comm.CommandText = "select * from " + tableName + " where name = @name";
+                IDbDataParameter paramName = comm.CreateParameter();
+                paramName.ParameterName = "@name";
+                paramName.Value = name;
+                comm.Parameters.Add(paramName);
+
+                using (var dataR = comm.ExecuteReader())
+                {
+                    if (dataR.Read())
+                    {
+                        int id = dataR.GetInt32(0);
+                        string password = dataR.GetString(2);
+                        Agency agency = new Agency(id, name, password);
+                        log.InfoFormat("Exiting getById with value {0}", agency);
+                        return agency;
+                    }
+                }
+            }
+            log.InfoFormat("Exiting getByName with value {0}", null);
+            return null;
         }
     }
 }

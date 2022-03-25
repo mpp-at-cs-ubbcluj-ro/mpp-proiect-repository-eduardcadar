@@ -32,7 +32,7 @@ namespace AgentiiDeTurism.src.repository
 
         public void delete(Trip elem)
         {
-            deleteById(elem.id);
+            deleteById(elem.Id);
         }
 
         public void deleteById(int id)
@@ -173,27 +173,27 @@ namespace AgentiiDeTurism.src.repository
 
                 IDbDataParameter paramTouristAttraction = comm.CreateParameter();
                 paramTouristAttraction.ParameterName = "@touristAttraction";
-                paramTouristAttraction.Value = elem.touristAttraction;
+                paramTouristAttraction.Value = elem.TouristAttraction;
                 comm.Parameters.Add(paramTouristAttraction);
 
                 IDbDataParameter paramTransportCompany = comm.CreateParameter();
                 paramTransportCompany.ParameterName = "@transportCompany";
-                paramTransportCompany.Value = elem.transportCompany;
+                paramTransportCompany.Value = elem.TransportCompany;
                 comm.Parameters.Add(paramTransportCompany);
 
                 IDbDataParameter paramDepartureTime = comm.CreateParameter();
                 paramDepartureTime.ParameterName = "@departureTime";
-                paramDepartureTime.Value = elem.departureTime;
+                paramDepartureTime.Value = elem.DepartureTime;
                 comm.Parameters.Add(paramDepartureTime);
 
                 IDbDataParameter paramPrice = comm.CreateParameter();
                 paramPrice.ParameterName = "@price";
-                paramPrice.Value = elem.price;
+                paramPrice.Value = elem.Price;
                 comm.Parameters.Add(paramPrice);
 
                 IDbDataParameter paramSeats = comm.CreateParameter();
                 paramSeats.ParameterName = "@seats";
-                paramSeats.Value = elem.seats;
+                paramSeats.Value = elem.Seats;
                 comm.Parameters.Add(paramSeats);
 
                 int result = comm.ExecuteNonQuery();
@@ -214,27 +214,27 @@ namespace AgentiiDeTurism.src.repository
 
                 IDbDataParameter paramTouristAttraction = comm.CreateParameter();
                 paramTouristAttraction.ParameterName = "@touristAttraction";
-                paramTouristAttraction.Value = elem.touristAttraction;
+                paramTouristAttraction.Value = elem.TouristAttraction;
                 comm.Parameters.Add(paramTouristAttraction);
 
                 IDbDataParameter paramTransportCompany = comm.CreateParameter();
                 paramTransportCompany.ParameterName = "@transportCompany";
-                paramTransportCompany.Value = elem.transportCompany;
+                paramTransportCompany.Value = elem.TransportCompany;
                 comm.Parameters.Add(paramTransportCompany);
 
                 IDbDataParameter paramDepartureTime = comm.CreateParameter();
                 paramDepartureTime.ParameterName = "@departureTime";
-                paramDepartureTime.Value = elem.departureTime;
+                paramDepartureTime.Value = elem.DepartureTime;
                 comm.Parameters.Add(paramDepartureTime);
 
                 IDbDataParameter paramPrice = comm.CreateParameter();
                 paramPrice.ParameterName = "@price";
-                paramPrice.Value = elem.price;
+                paramPrice.Value = elem.Price;
                 comm.Parameters.Add(paramPrice);
 
                 IDbDataParameter paramSeats = comm.CreateParameter();
                 paramSeats.ParameterName = "@seats";
-                paramSeats.Value = elem.seats;
+                paramSeats.Value = elem.Seats;
                 comm.Parameters.Add(paramSeats);
 
                 IDbDataParameter paramId = comm.CreateParameter();
