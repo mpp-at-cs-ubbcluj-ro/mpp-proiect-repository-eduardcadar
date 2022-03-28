@@ -117,6 +117,7 @@ namespace AgentiiDeTurism.src.controller
             this.buttonSearch.TabIndex = 26;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
             // textBoxPhoneNumber
             // 
@@ -147,6 +148,7 @@ namespace AgentiiDeTurism.src.controller
             this.buttonReserve.TabIndex = 32;
             this.buttonReserve.Text = "Reserve";
             this.buttonReserve.UseVisualStyleBackColor = true;
+            this.buttonReserve.Click += new System.EventHandler(this.ButtonReserve_Click);
             // 
             // textBoxBefore
             // 
@@ -169,6 +171,7 @@ namespace AgentiiDeTurism.src.controller
             this.comboBoxDestination.Name = "comboBoxDestination";
             this.comboBoxDestination.Size = new System.Drawing.Size(146, 24);
             this.comboBoxDestination.TabIndex = 29;
+            this.comboBoxDestination.SelectedIndexChanged += new System.EventHandler(this.ComboBoxDestination_SelectedIndexChanged);
             // 
             // labelAgency
             // 
@@ -183,10 +186,11 @@ namespace AgentiiDeTurism.src.controller
             // 
             this.buttonLogout.Location = new System.Drawing.Point(167, 8);
             this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogout.Size = new System.Drawing.Size(75, 29);
             this.buttonLogout.TabIndex = 27;
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.UseVisualStyleBackColor = true;
+            this.buttonLogout.Click += new System.EventHandler(this.ButtonLogout_Click);
             // 
             // labelReservations
             // 
