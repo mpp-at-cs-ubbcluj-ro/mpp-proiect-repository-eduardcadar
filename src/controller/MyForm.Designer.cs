@@ -55,18 +55,18 @@ namespace AgentiiDeTurism.src.controller
             this.columnResTrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnResSeats = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableTrips = new System.Windows.Forms.DataGridView();
-            this.listAgencies = new System.Windows.Forms.ListView();
-            this.labelPassword = new System.Windows.Forms.Label();
-            this.labelUsername = new System.Windows.Forms.Label();
-            this.textBoxUsername = new System.Windows.Forms.TextBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.buttonLogin = new System.Windows.Forms.Button();
             this.columnTripId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnTripDestination = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnTripCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnTripDepartureTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnTripPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnTripSeats = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listAgencies = new System.Windows.Forms.ListView();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.panelLogin.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableReservations)).BeginInit();
@@ -340,6 +340,55 @@ namespace AgentiiDeTurism.src.controller
             this.tableTrips.Size = new System.Drawing.Size(592, 261);
             this.tableTrips.TabIndex = 1;
             // 
+            // columnTripId
+            // 
+            this.columnTripId.HeaderText = "Id";
+            this.columnTripId.MinimumWidth = 6;
+            this.columnTripId.Name = "columnTripId";
+            this.columnTripId.ReadOnly = true;
+            this.columnTripId.Visible = false;
+            this.columnTripId.Width = 30;
+            // 
+            // columnTripDestination
+            // 
+            this.columnTripDestination.HeaderText = "Destination";
+            this.columnTripDestination.MinimumWidth = 6;
+            this.columnTripDestination.Name = "columnTripDestination";
+            this.columnTripDestination.ReadOnly = true;
+            this.columnTripDestination.Width = 80;
+            // 
+            // columnTripCompany
+            // 
+            this.columnTripCompany.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnTripCompany.HeaderText = "Company";
+            this.columnTripCompany.MinimumWidth = 6;
+            this.columnTripCompany.Name = "columnTripCompany";
+            this.columnTripCompany.ReadOnly = true;
+            // 
+            // columnTripDepartureTime
+            // 
+            this.columnTripDepartureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnTripDepartureTime.HeaderText = "Departure time";
+            this.columnTripDepartureTime.MinimumWidth = 6;
+            this.columnTripDepartureTime.Name = "columnTripDepartureTime";
+            this.columnTripDepartureTime.ReadOnly = true;
+            // 
+            // columnTripPrice
+            // 
+            this.columnTripPrice.HeaderText = "Price";
+            this.columnTripPrice.MinimumWidth = 6;
+            this.columnTripPrice.Name = "columnTripPrice";
+            this.columnTripPrice.ReadOnly = true;
+            this.columnTripPrice.Width = 50;
+            // 
+            // columnTripSeats
+            // 
+            this.columnTripSeats.HeaderText = "Seats";
+            this.columnTripSeats.MinimumWidth = 6;
+            this.columnTripSeats.Name = "columnTripSeats";
+            this.columnTripSeats.ReadOnly = true;
+            this.columnTripSeats.Width = 50;
+            // 
             // listAgencies
             // 
             this.listAgencies.HideSelection = false;
@@ -393,55 +442,6 @@ namespace AgentiiDeTurism.src.controller
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // columnTripId
-            // 
-            this.columnTripId.HeaderText = "Id";
-            this.columnTripId.MinimumWidth = 6;
-            this.columnTripId.Name = "columnTripId";
-            this.columnTripId.ReadOnly = true;
-            this.columnTripId.Visible = false;
-            this.columnTripId.Width = 30;
-            // 
-            // columnTripDestination
-            // 
-            this.columnTripDestination.HeaderText = "Destination";
-            this.columnTripDestination.MinimumWidth = 6;
-            this.columnTripDestination.Name = "columnTripDestination";
-            this.columnTripDestination.ReadOnly = true;
-            this.columnTripDestination.Width = 80;
-            // 
-            // columnTripCompany
-            // 
-            this.columnTripCompany.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnTripCompany.HeaderText = "Company";
-            this.columnTripCompany.MinimumWidth = 6;
-            this.columnTripCompany.Name = "columnTripCompany";
-            this.columnTripCompany.ReadOnly = true;
-            // 
-            // columnTripDepartureTime
-            // 
-            this.columnTripDepartureTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnTripDepartureTime.HeaderText = "Departure time";
-            this.columnTripDepartureTime.MinimumWidth = 6;
-            this.columnTripDepartureTime.Name = "columnTripDepartureTime";
-            this.columnTripDepartureTime.ReadOnly = true;
-            // 
-            // columnTripPrice
-            // 
-            this.columnTripPrice.HeaderText = "Price";
-            this.columnTripPrice.MinimumWidth = 6;
-            this.columnTripPrice.Name = "columnTripPrice";
-            this.columnTripPrice.ReadOnly = true;
-            this.columnTripPrice.Width = 50;
-            // 
-            // columnTripSeats
-            // 
-            this.columnTripSeats.HeaderText = "Seats";
-            this.columnTripSeats.MinimumWidth = 6;
-            this.columnTripSeats.Name = "columnTripSeats";
-            this.columnTripSeats.ReadOnly = true;
-            this.columnTripSeats.Width = 50;
-            // 
             // MyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -449,6 +449,7 @@ namespace AgentiiDeTurism.src.controller
             this.ClientSize = new System.Drawing.Size(1161, 473);
             this.Controls.Add(this.panelLogin);
             this.Name = "MyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
