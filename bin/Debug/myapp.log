@@ -1322,3 +1322,159 @@
 2022-03-28 12:15:06,005 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
 2022-03-28 12:15:06,005 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 11:15:00
 2022-03-28 12:15:06,005 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 16
+2022-03-28 12:34:05,083 [1] INFO AgencyDBRepo - Creating AgencyDBRepo
+2022-03-28 12:34:05,095 [1] INFO TripDBRepo - Creating TripDBRepo
+2022-03-28 12:34:05,095 [1] INFO ReservationDBRepo - Creating ReservationDBRepo
+2022-03-28 12:34:07,777 [1] INFO AgencyDBRepo - Entering getByName with value agentie
+2022-03-28 12:34:07,886 [1] INFO AgencyDBRepo - Exiting getById with value agentie
+2022-03-28 12:34:07,905 [1] INFO AgencyDBRepo - Entering getAll
+2022-03-28 12:34:07,905 [1] INFO AgencyDBRepo - Exiting getAll with 2 results
+2022-03-28 12:34:07,918 [1] INFO TripDBRepo - Entering getAll
+2022-03-28 12:34:07,918 [1] INFO TripDBRepo - Exiting getAll with 5 results
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 12:00:00
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 12:00:00
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 11:00:00
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 10
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 10:30:00
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 11:15:00
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 16
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Entering getAll
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Exiting getAll with 5 results
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Entering getAll
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Entering getById with value 2
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Exiting getById with value mare at 12:00:00
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Entering getById with value 2
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Exiting getById with value mare at 12:00:00
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Entering getById with value 4
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Exiting getById with value munte at 12:00:00
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Entering getById with value 4
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Exiting getById with value munte at 12:00:00
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Entering getById with value 15
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Exiting getById with value mare at 10:30:00
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Entering getById with value 16
+2022-03-28 12:34:07,934 [1] INFO TripDBRepo - Exiting getById with value munte at 11:15:00
+2022-03-28 12:34:07,934 [1] INFO ReservationDBRepo - Exiting getAll with 6 results
+2022-03-28 12:57:38,121 [1] INFO AgencyDBRepo - Creating AgencyDBRepo
+2022-03-28 12:57:38,121 [1] INFO TripDBRepo - Creating TripDBRepo
+2022-03-28 12:57:38,136 [1] INFO ReservationDBRepo - Creating ReservationDBRepo
+2022-03-28 12:57:44,011 [1] INFO AgencyDBRepo - Entering getByName with value agentie
+2022-03-28 12:57:44,230 [1] INFO AgencyDBRepo - Exiting getById with value agentie
+2022-03-28 12:57:44,262 [1] INFO AgencyDBRepo - Entering getAll
+2022-03-28 12:57:44,262 [1] INFO AgencyDBRepo - Exiting getAll with 2 results
+2022-03-28 12:57:44,311 [1] INFO TripDBRepo - Entering getAll
+2022-03-28 12:57:44,311 [1] INFO TripDBRepo - Exiting getAll with 5 results
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 12:00:00
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 12:00:00
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 11:00:00
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 10
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 10:30:00
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 11:15:00
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 16
+2022-03-28 12:57:44,325 [1] INFO TripDBRepo - Entering getAll
+2022-03-28 12:57:44,325 [1] INFO TripDBRepo - Exiting getAll with 5 results
+2022-03-28 12:57:44,325 [1] INFO ReservationDBRepo - Entering getAll
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Entering getById with value 2
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Exiting getById with value mare at 12:00:00
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Entering getById with value 2
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Exiting getById with value mare at 12:00:00
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Entering getById with value 4
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Exiting getById with value munte at 12:00:00
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Entering getById with value 4
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Exiting getById with value munte at 12:00:00
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Entering getById with value 15
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Exiting getById with value mare at 10:30:00
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Entering getById with value 16
+2022-03-28 12:57:44,340 [1] INFO TripDBRepo - Exiting getById with value munte at 11:15:00
+2022-03-28 12:57:44,340 [1] INFO ReservationDBRepo - Exiting getAll with 6 results
+2022-03-28 13:16:37,472 [1] INFO AgencyDBRepo - Creating AgencyDBRepo
+2022-03-28 13:16:37,488 [1] INFO TripDBRepo - Creating TripDBRepo
+2022-03-28 13:16:37,488 [1] INFO ReservationDBRepo - Creating ReservationDBRepo
+2022-03-28 13:16:41,730 [1] INFO AgencyDBRepo - Entering getByName with value agentie
+2022-03-28 13:16:41,887 [1] INFO AgencyDBRepo - Exiting getById with value agentie
+2022-03-28 13:16:41,919 [1] INFO AgencyDBRepo - Entering getAll
+2022-03-28 13:16:41,919 [1] INFO AgencyDBRepo - Exiting getAll with 2 results
+2022-03-28 13:16:41,950 [1] INFO TripDBRepo - Entering getAll
+2022-03-28 13:16:41,950 [1] INFO TripDBRepo - Exiting getAll with 5 results
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 12:00:00
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 12:00:00
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 11:00:00
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 10
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 10:30:00
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 11:15:00
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 16
+2022-03-28 13:16:41,950 [1] INFO TripDBRepo - Entering getAll
+2022-03-28 13:16:41,950 [1] INFO TripDBRepo - Exiting getAll with 5 results
+2022-03-28 13:16:41,950 [1] INFO ReservationDBRepo - Entering getAll
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Entering getById with value 2
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Exiting getById with value mare at 12:00:00
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Entering getById with value 2
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Exiting getById with value mare at 12:00:00
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Entering getById with value 4
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Exiting getById with value munte at 12:00:00
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Entering getById with value 4
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Exiting getById with value munte at 12:00:00
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Entering getById with value 15
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Exiting getById with value mare at 10:30:00
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Entering getById with value 16
+2022-03-28 13:16:41,966 [1] INFO TripDBRepo - Exiting getById with value munte at 11:15:00
+2022-03-28 13:16:41,966 [1] INFO ReservationDBRepo - Exiting getAll with 6 results
+2022-03-28 13:16:57,175 [1] INFO TripDBRepo - Entering getTouristAttractionTrips
+2022-03-28 13:16:57,175 [1] INFO TripDBRepo - Exiting getTouristAttractionTrips with 3 results
+2022-03-28 13:16:57,175 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 12:00:00
+2022-03-28 13:16:57,175 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 13:16:57,175 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 11:00:00
+2022-03-28 13:16:57,175 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 10
+2022-03-28 13:16:57,175 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value mare at 10:30:00
+2022-03-28 13:16:57,175 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 13:16:59,466 [1] INFO TripDBRepo - Entering getTouristAttractionTrips
+2022-03-28 13:16:59,466 [1] INFO TripDBRepo - Exiting getTouristAttractionTrips with 2 results
+2022-03-28 13:16:59,466 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 12:00:00
+2022-03-28 13:16:59,466 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 13:16:59,466 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 11:15:00
+2022-03-28 13:16:59,468 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 16
+2022-03-28 13:17:10,622 [1] INFO TripDBRepo - Entering getTouristAttractionTrips
+2022-03-28 13:17:10,622 [1] INFO TripDBRepo - Exiting getTouristAttractionTrips with 1 results
+2022-03-28 13:17:10,622 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 12:00:00
+2022-03-28 13:17:10,622 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 13:17:17,559 [1] INFO TripDBRepo - Entering getTouristAttractionTrips
+2022-03-28 13:17:17,559 [1] INFO TripDBRepo - Exiting getTouristAttractionTrips with 2 results
+2022-03-28 13:17:17,559 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 12:00:00
+2022-03-28 13:17:17,559 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 13:17:17,559 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 11:15:00
+2022-03-28 13:17:17,559 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 16
+2022-03-28 13:17:28,653 [1] INFO TripDBRepo - Entering getById with value 16
+2022-03-28 13:17:28,653 [1] INFO TripDBRepo - Exiting getById with value munte at 11:15:00
+2022-03-28 13:17:28,653 [1] INFO ReservationDBRepo - Entering save with value Reservation by client5 on trip to munte for 16 seats
+2022-03-28 13:17:28,684 [1] INFO ReservationDBRepo - Saved 1 trips
+2022-03-28 13:17:28,684 [1] INFO ReservationDBRepo - Exiting save
+2022-03-28 13:17:28,684 [1] INFO ReservationDBRepo - Entering getAll
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Entering getById with value 2
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Exiting getById with value mare at 12:00:00
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Entering getById with value 2
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Exiting getById with value mare at 12:00:00
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Entering getById with value 4
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Exiting getById with value munte at 12:00:00
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Entering getById with value 4
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Exiting getById with value munte at 12:00:00
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Entering getById with value 15
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Exiting getById with value mare at 10:30:00
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Entering getById with value 16
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Exiting getById with value munte at 11:15:00
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Entering getById with value 16
+2022-03-28 13:17:28,684 [1] INFO TripDBRepo - Exiting getById with value munte at 11:15:00
+2022-03-28 13:17:28,684 [1] INFO ReservationDBRepo - Exiting getAll with 7 results
+2022-03-28 13:17:28,700 [1] INFO TripDBRepo - Entering getTouristAttractionTrips
+2022-03-28 13:17:28,700 [1] INFO TripDBRepo - Exiting getTouristAttractionTrips with 2 results
+2022-03-28 13:17:28,700 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 12:00:00
+2022-03-28 13:17:28,700 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0
+2022-03-28 13:17:28,700 [1] INFO ReservationDBRepo - Entering getAvailableSeatsForTrip with value munte at 11:15:00
+2022-03-28 13:17:28,700 [1] INFO ReservationDBRepo - Exiting getAvailableSeatsForTrip with value 0

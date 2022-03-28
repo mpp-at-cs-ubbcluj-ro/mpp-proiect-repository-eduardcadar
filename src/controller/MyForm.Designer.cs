@@ -109,7 +109,7 @@ namespace AgentiiDeTurism.src.controller
             this.panelMain.Controls.Add(this.tableReservations);
             this.panelMain.Controls.Add(this.tableTrips);
             this.panelMain.Controls.Add(this.listAgencies);
-            this.panelMain.Location = new System.Drawing.Point(9, 6);
+            this.panelMain.Location = new System.Drawing.Point(3, 3);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1128, 443);
             this.panelMain.TabIndex = 5;
