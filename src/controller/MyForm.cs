@@ -10,32 +10,58 @@ namespace AgentiiDeTurism.src.controller
 {
     public partial class MyForm : Form
     {
+        private UserControl currentTab;
         private Service srv;
         public MyForm()
         {
             InitializeComponent();
-            panelLogin.Visible = true;
-            panelMain.Visible = false;
+            tabLogin.Show();
+            tabMain.Visible = false;
+            currentTab = tabLogin;
             this.srv = Program.GetService();
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        public void TryLogin(string name, string password)
         {
-            Agency agency = login();
+            Agency agency = Login(name, password);
             if (agency == null) return;
             labelAgency.Text = "Agency: " + agency;
-            panelMain.Visible = true;
+
+            setTabMain();
 
             listAgencies.Items.Clear();
             foreach (Agency a in this.srv.getAllAgencies())
                 listAgencies.Items.Add(a.ToString());
 
-            reloadTrips();
-            reloadDestinationComboBox();
-            reloadReservations();
+            ReloadTrips();
+            ReloadDestinationComboBox();
+            ReloadReservations();
         }
 
-        private void reloadTrips()
+        private void setTabMain()
+        {
+            currentTab.Hide();
+            //currentTab = panelMain;
+            currentTab.Show();
+        }
+
+        private Agency Login(string name, string password)
+        {
+            Agency agency = srv.getAgencyByName(name);
+            if (agency == null)
+            {
+                MessageBox.Show("No agency with this name");
+                return null;
+            }
+            if (!password.Equals(agency.Password))
+            {
+                MessageBox.Show("Wrong password!");
+                return null;
+            }
+            return agency;
+        }
+
+        private void ReloadTrips()
         {
             TimeSpan timeBefore;
             TimeSpan timeAfter;
@@ -70,7 +96,7 @@ namespace AgentiiDeTurism.src.controller
             }
         }
 
-        private void reloadDestinationComboBox()
+        private void ReloadDestinationComboBox()
         {
             HashSet<string> destinations = new HashSet<string>();
             foreach (Trip t in this.srv.getAllTrips())
@@ -79,25 +105,7 @@ namespace AgentiiDeTurism.src.controller
                 comboBoxDestination.Items.Add(d);
         }
 
-        private Agency login()
-        {
-            string name = textBoxUsername.Text;
-            string password = textBoxPassword.Text;
-            Agency agency = srv.getAgencyByName(name);
-            if (agency == null)
-            {
-                MessageBox.Show("No agency with this name");
-                return null;
-            }
-            if (!password.Equals(agency.Password))
-            {
-                MessageBox.Show("Wrong password!");
-                return null;
-            }
-            return agency;
-        }
-
-        private void reloadReservations()
+        private void ReloadReservations()
         {
             tableReservations.Rows.Clear();
             foreach (Reservation r in this.srv.getAllReservations())
@@ -110,12 +118,12 @@ namespace AgentiiDeTurism.src.controller
             }
         }
 
-        private void buttonLogout_Click(object sender, EventArgs e)
+        private void ButtonLogout_Click(object sender, EventArgs e)
         {
             panelMain.Visible = false;
         }
 
-        private void buttonReserve_Click(object sender, EventArgs e)
+        private void ButtonReserve_Click(object sender, EventArgs e)
         {
             if (tableTrips.SelectedCells.Count < 1)
                 return;
@@ -147,18 +155,18 @@ namespace AgentiiDeTurism.src.controller
                 return;
             }
             srv.saveReservation(client, trip, phoneNumber, seats);
-            reloadReservations();
-            reloadTrips();
+            ReloadReservations();
+            ReloadTrips();
         }
 
-        private void buttonSearch_Click(object sender, EventArgs e)
+        private void ButtonSearch_Click(object sender, EventArgs e)
         {
-            reloadTrips();
+            ReloadTrips();
         }
 
-        private void comboBoxDestination_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxDestination_SelectedIndexChanged(object sender, EventArgs e)
         {
-            reloadTrips();
+            ReloadTrips();
         }
     }
 }

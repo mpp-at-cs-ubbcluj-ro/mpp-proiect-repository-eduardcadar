@@ -130,6 +130,18 @@
     <Compile Include="src\controller\MyForm.Designer.cs">
       <DependentUpon>MyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\controller\TabLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\controller\TabLogin.Designer.cs">
+      <DependentUpon>TabLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\controller\TabMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\controller\TabMain.Designer.cs">
+      <DependentUpon>TabMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\utils\TripDTO.cs" />
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -169,6 +181,12 @@
   <ItemGroup>
     <EmbeddedResource Include="src\controller\MyForm.resx">
       <DependentUpon>MyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\controller\TabLogin.resx">
+      <DependentUpon>TabLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\controller\TabMain.resx">
+      <DependentUpon>TabMain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />

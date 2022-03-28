@@ -13,9 +13,10 @@ C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\Agenti
 C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\AgentiiDeTurism.csproj.CopyComplete
 C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\ConsoleApplication.pdb
 C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\bin\Debug\log4net.config
-C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\AgentiiDeTurism.csproj.AssemblyReference.cache
 C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\bin\Debug\ConsoleApplication.exe.config
 C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\bin\Debug\ConsoleApplication.exe
 C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\ConsoleApplication.exe
 C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\AgentiiDeTurism.csproj.GenerateResource.cache
 C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\AgentiiDeTurism.src.controller.MyForm.resources
+C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\AgentiiDeTurism.src.controller.TabLogin.resources
+C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismCSharp\obj\x86\Debug\AgentiiDeTurism.src.controller.TabMain.resources
