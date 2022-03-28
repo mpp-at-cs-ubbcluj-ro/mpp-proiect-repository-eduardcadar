@@ -117,7 +117,7 @@ namespace AgentiiDeTurism.src.repository
                         String client = dataR.GetString(0);
                         int id_trip = dataR.GetInt32(1);
                         Trip trip = tripRepo.getById(id_trip);
-                        String phoneNumber = dataR.GetString(2);
+                        String phoneNumber = dataR.GetInt32(2).ToString();
                         int seats = dataR.GetInt32(3);
 
                         Reservation reservation = new Reservation(new Tuple<string, Trip>(client, trip), phoneNumber, seats);
@@ -134,7 +134,8 @@ namespace AgentiiDeTurism.src.repository
         {
             log.InfoFormat("Entering save with value {0}", elem);
             IDbConnection con = DBUtils.GetConnection(props);
-
+            if (getById(elem.getId()) != null)
+                throw new ArgumentException("Client already has a reservation for this trip");
             using (var comm = con.CreateCommand())
             {
                 comm.CommandText = "insert into " + tableName +
