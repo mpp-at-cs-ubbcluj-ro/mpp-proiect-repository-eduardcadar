@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'AgentiiDeTurism'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':Model')
+    implementation project(':Services')
+}
+
+test {
+    useJUnitPlatform()
+}

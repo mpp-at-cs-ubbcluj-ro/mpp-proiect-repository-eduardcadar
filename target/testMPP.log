@@ -3683,3 +3683,560 @@
 21 Mar 2022 13:53:02,332 TRACE utils.JdbcUtils 43 getConnection - Enter
 21 Mar 2022 13:53:02,332 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2d1ca4a6)
 21 Mar 2022 13:53:02,333 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:06:28,835 INFO  repository.AgencyDBRepo 24 <init> - Initializing AgencyDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 17:06:28,848 INFO  repository.TripDBRepo 21 <init> - Initializing TripDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 17:06:28,850 INFO  repository.ReservationDBRepo 27 <init> - Initializing ReservationDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 17:06:55,587 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 17:06:55,595 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,595 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 17:06:55,595 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 17:06:55,595 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 17:06:55,595 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 17:06:55,812 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@340905b7)
+22 Mar 2022 17:06:55,821 TRACE repository.AgencyDBRepo 161 getByName - Exit
+22 Mar 2022 17:06:55,922 TRACE repository.AgencyDBRepo 122 getAll - Enter
+22 Mar 2022 17:06:55,931 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,931 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@340905b7)
+22 Mar 2022 17:06:55,931 TRACE repository.AgencyDBRepo 138 getAll - Exit
+22 Mar 2022 17:06:55,931 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 17:06:55,931 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,931 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 17:06:55,931 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 17:06:55,931 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 17:06:55,931 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 17:06:55,931 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 17:06:55,939 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 17:06:55,939 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:06:55,939 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,939 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 17:06:55,939 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 17:06:55,939 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 17:06:55,939 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 17:06:55,939 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 17:06:55,939 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:06:55,939 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:06:55,939 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,939 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 17:06:55,939 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:06:55,947 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:06:55,947 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,947 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 17:06:55,947 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:06:55,947 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:06:55,947 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,947 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 17:06:55,947 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:06:55,947 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:06:55,947 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,947 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 17:06:55,947 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:06:55,947 TRACE repository.ReservationDBRepo 131 getAll - Enter
+22 Mar 2022 17:06:55,947 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,947 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 17:06:55,955 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 17:06:55,955 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,955 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 17:06:55,955 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 17:06:55,955 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 17:06:55,955 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,955 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 17:06:55,955 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 17:06:55,955 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 17:06:55,955 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,955 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 17:06:55,962 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 17:06:55,962 TRACE repository.ReservationDBRepo 149 getAll - Exit
+22 Mar 2022 17:06:55,963 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 17:06:55,963 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:06:55,963 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 17:06:55,963 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 17:38:57,250 INFO  repository.AgencyDBRepo 24 <init> - Initializing AgencyDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 17:38:57,258 INFO  repository.TripDBRepo 21 <init> - Initializing TripDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 17:38:57,260 INFO  repository.ReservationDBRepo 27 <init> - Initializing ReservationDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 17:39:03,097 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 17:39:03,098 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,098 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 17:39:03,100 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 17:39:03,101 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 17:39:03,102 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 17:39:03,651 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@37d78609)
+22 Mar 2022 17:39:03,657 TRACE repository.AgencyDBRepo 161 getByName - Exit
+22 Mar 2022 17:39:03,758 TRACE repository.AgencyDBRepo 122 getAll - Enter
+22 Mar 2022 17:39:03,758 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,759 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@37d78609)
+22 Mar 2022 17:39:03,759 TRACE repository.AgencyDBRepo 138 getAll - Exit
+22 Mar 2022 17:39:03,761 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 17:39:03,761 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,761 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 17:39:03,761 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 17:39:03,762 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 17:39:03,762 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 17:39:03,763 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@30c64efc)
+22 Mar 2022 17:39:03,764 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 17:39:03,765 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:39:03,765 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,766 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 17:39:03,766 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 17:39:03,767 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 17:39:03,767 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 17:39:03,770 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@372467e2)
+22 Mar 2022 17:39:03,772 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:39:03,773 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:39:03,774 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,774 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@372467e2)
+22 Mar 2022 17:39:03,775 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:39:03,775 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:39:03,775 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,776 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@372467e2)
+22 Mar 2022 17:39:03,776 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:39:03,776 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:39:03,777 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,777 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@372467e2)
+22 Mar 2022 17:39:03,777 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:39:03,778 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 17:39:03,778 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,778 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@372467e2)
+22 Mar 2022 17:39:03,780 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 17:39:03,781 TRACE repository.ReservationDBRepo 131 getAll - Enter
+22 Mar 2022 17:39:03,782 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,782 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@372467e2)
+22 Mar 2022 17:39:03,783 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 17:39:03,784 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,784 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@30c64efc)
+22 Mar 2022 17:39:03,786 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 17:39:03,788 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 17:39:03,788 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,788 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@30c64efc)
+22 Mar 2022 17:39:03,789 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 17:39:03,789 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 17:39:03,789 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,789 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@30c64efc)
+22 Mar 2022 17:39:03,790 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 17:39:03,790 TRACE repository.ReservationDBRepo 149 getAll - Exit
+22 Mar 2022 17:39:03,791 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 17:39:03,791 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 17:39:03,791 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@30c64efc)
+22 Mar 2022 17:39:03,792 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 19:19:11,263 INFO  repository.AgencyDBRepo 24 <init> - Initializing AgencyDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:19:11,268 INFO  repository.TripDBRepo 21 <init> - Initializing TripDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:19:11,269 INFO  repository.ReservationDBRepo 27 <init> - Initializing ReservationDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:19:26,327 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 19:19:26,327 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:26,328 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:19:26,328 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:19:26,328 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:19:26,328 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:19:26,613 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@72901569)
+22 Mar 2022 19:19:26,617 ERROR repository.AgencyDBRepo 156 getByName - java.sql.SQLException: ResultSet closed
+22 Mar 2022 19:19:31,077 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 19:19:31,079 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:31,079 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@72901569)
+22 Mar 2022 19:19:31,079 ERROR repository.AgencyDBRepo 156 getByName - java.sql.SQLException: ResultSet closed
+22 Mar 2022 19:19:34,788 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 19:19:34,788 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,788 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@72901569)
+22 Mar 2022 19:19:34,789 TRACE repository.AgencyDBRepo 161 getByName - Exit
+22 Mar 2022 19:19:34,843 TRACE repository.AgencyDBRepo 122 getAll - Enter
+22 Mar 2022 19:19:34,843 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,843 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@72901569)
+22 Mar 2022 19:19:34,843 TRACE repository.AgencyDBRepo 138 getAll - Exit
+22 Mar 2022 19:19:34,844 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 19:19:34,844 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,844 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:19:34,845 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:19:34,845 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:19:34,845 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:19:34,846 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5a3d2e3e)
+22 Mar 2022 19:19:34,847 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 19:19:34,848 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:19:34,848 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,848 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:19:34,848 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:19:34,849 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:19:34,849 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:19:34,849 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@455d6ca2)
+22 Mar 2022 19:19:34,850 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:19:34,851 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:19:34,851 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,851 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@455d6ca2)
+22 Mar 2022 19:19:34,852 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:19:34,852 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:19:34,852 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,852 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@455d6ca2)
+22 Mar 2022 19:19:34,852 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:19:34,853 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:19:34,853 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,853 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@455d6ca2)
+22 Mar 2022 19:19:34,853 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:19:34,853 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:19:34,854 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,854 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@455d6ca2)
+22 Mar 2022 19:19:34,854 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:19:34,855 TRACE repository.ReservationDBRepo 131 getAll - Enter
+22 Mar 2022 19:19:34,855 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,855 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@455d6ca2)
+22 Mar 2022 19:19:34,855 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 19:19:34,855 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,855 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5a3d2e3e)
+22 Mar 2022 19:19:34,856 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 19:19:34,858 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 19:19:34,858 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,858 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5a3d2e3e)
+22 Mar 2022 19:19:34,859 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 19:19:34,859 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 19:19:34,859 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,859 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5a3d2e3e)
+22 Mar 2022 19:19:34,860 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 19:19:34,860 TRACE repository.ReservationDBRepo 149 getAll - Exit
+22 Mar 2022 19:19:34,860 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 19:19:34,860 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:19:34,861 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5a3d2e3e)
+22 Mar 2022 19:19:34,861 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 19:52:17,814 INFO  repository.AgencyDBRepo 24 <init> - Initializing AgencyDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:52:17,819 INFO  repository.TripDBRepo 21 <init> - Initializing TripDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:52:17,820 INFO  repository.ReservationDBRepo 27 <init> - Initializing ReservationDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:52:25,986 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 19:52:25,986 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:25,986 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:52:25,987 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:52:25,987 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:52:25,987 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:52:26,148 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@40ddbfb5)
+22 Mar 2022 19:52:26,151 TRACE repository.AgencyDBRepo 161 getByName - Exit
+22 Mar 2022 19:52:26,201 TRACE repository.AgencyDBRepo 122 getAll - Enter
+22 Mar 2022 19:52:26,201 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,202 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@40ddbfb5)
+22 Mar 2022 19:52:26,202 TRACE repository.AgencyDBRepo 138 getAll - Exit
+22 Mar 2022 19:52:26,203 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 19:52:26,203 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,203 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:52:26,203 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:52:26,204 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:52:26,204 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:52:26,204 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@423981c5)
+22 Mar 2022 19:52:26,205 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 19:52:26,206 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:52:26,206 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,206 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:52:26,206 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:52:26,207 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:52:26,207 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:52:26,207 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@23a53f69)
+22 Mar 2022 19:52:26,208 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:52:26,209 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:52:26,209 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,209 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@23a53f69)
+22 Mar 2022 19:52:26,209 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:52:26,209 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:52:26,209 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,210 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@23a53f69)
+22 Mar 2022 19:52:26,210 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:52:26,210 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:52:26,210 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,210 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@23a53f69)
+22 Mar 2022 19:52:26,210 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:52:26,211 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:52:26,211 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,211 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@23a53f69)
+22 Mar 2022 19:52:26,211 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:52:26,212 TRACE repository.ReservationDBRepo 131 getAll - Enter
+22 Mar 2022 19:52:26,212 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,212 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@23a53f69)
+22 Mar 2022 19:52:26,212 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 19:52:26,212 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,212 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@423981c5)
+22 Mar 2022 19:52:26,213 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 19:52:26,214 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 19:52:26,214 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,215 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@423981c5)
+22 Mar 2022 19:52:26,215 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 19:52:26,216 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 19:52:26,216 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,216 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@423981c5)
+22 Mar 2022 19:52:26,216 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 19:52:26,217 TRACE repository.ReservationDBRepo 149 getAll - Exit
+22 Mar 2022 19:52:26,217 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 19:52:26,217 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:52:26,217 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@423981c5)
+22 Mar 2022 19:52:26,217 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 19:55:50,875 INFO  repository.AgencyDBRepo 24 <init> - Initializing AgencyDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:55:50,879 INFO  repository.TripDBRepo 21 <init> - Initializing TripDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:55:50,880 INFO  repository.ReservationDBRepo 27 <init> - Initializing ReservationDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:55:52,588 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 19:55:52,589 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:55:52,589 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:55:52,589 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:55:52,589 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:55:52,589 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:55:52,715 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@67c0f795)
+22 Mar 2022 19:55:52,718 ERROR repository.AgencyDBRepo 156 getByName - java.sql.SQLException: ResultSet closed
+22 Mar 2022 19:55:57,244 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 19:55:57,244 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:55:57,244 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@67c0f795)
+22 Mar 2022 19:55:57,245 TRACE repository.AgencyDBRepo 161 getByName - Exit
+22 Mar 2022 19:59:22,027 INFO  repository.AgencyDBRepo 24 <init> - Initializing AgencyDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:59:22,032 INFO  repository.TripDBRepo 21 <init> - Initializing TripDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:59:22,034 INFO  repository.ReservationDBRepo 27 <init> - Initializing ReservationDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 19:59:30,090 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 19:59:30,091 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,091 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:59:30,091 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:59:30,091 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:59:30,092 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:59:30,226 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@340905b7)
+22 Mar 2022 19:59:30,228 TRACE repository.AgencyDBRepo 161 getByName - Exit
+22 Mar 2022 19:59:30,282 TRACE repository.AgencyDBRepo 122 getAll - Enter
+22 Mar 2022 19:59:30,282 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,282 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@340905b7)
+22 Mar 2022 19:59:30,283 TRACE repository.AgencyDBRepo 138 getAll - Exit
+22 Mar 2022 19:59:30,283 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 19:59:30,284 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,284 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:59:30,284 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:59:30,284 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:59:30,284 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:59:30,285 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 19:59:30,286 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 19:59:30,286 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:59:30,286 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,286 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 19:59:30,287 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 19:59:30,287 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 19:59:30,287 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 19:59:30,288 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 19:59:30,288 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:59:30,289 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:59:30,289 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,289 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 19:59:30,290 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:59:30,290 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:59:30,290 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,290 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 19:59:30,290 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:59:30,290 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:59:30,291 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,291 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 19:59:30,291 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:59:30,291 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 19:59:30,291 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,291 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 19:59:30,292 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 19:59:30,292 TRACE repository.ReservationDBRepo 131 getAll - Enter
+22 Mar 2022 19:59:30,292 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,292 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@50335ee9)
+22 Mar 2022 19:59:30,293 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 19:59:30,293 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,293 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 19:59:30,293 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 19:59:30,294 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 19:59:30,294 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,294 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 19:59:30,294 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 19:59:30,294 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 19:59:30,295 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,295 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 19:59:30,295 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 19:59:30,295 TRACE repository.ReservationDBRepo 149 getAll - Exit
+22 Mar 2022 19:59:30,295 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 19:59:30,295 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 19:59:30,296 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3b7f35d8)
+22 Mar 2022 19:59:30,296 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 20:56:05,307 INFO  repository.AgencyDBRepo 24 <init> - Initializing AgencyDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 20:56:05,312 INFO  repository.TripDBRepo 21 <init> - Initializing TripDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 20:56:05,313 INFO  repository.ReservationDBRepo 27 <init> - Initializing ReservationDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 20:56:08,150 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 20:56:08,150 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:08,151 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 20:56:08,151 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 20:56:08,151 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 20:56:08,151 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 20:56:08,397 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@340905b7)
+22 Mar 2022 20:56:08,401 TRACE repository.AgencyDBRepo 161 getByName - Exit
+22 Mar 2022 20:56:11,031 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 20:56:11,031 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,031 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@340905b7)
+22 Mar 2022 20:56:11,032 TRACE repository.AgencyDBRepo 161 getByName - Exit
+22 Mar 2022 20:56:11,074 TRACE repository.AgencyDBRepo 122 getAll - Enter
+22 Mar 2022 20:56:11,074 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,074 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@340905b7)
+22 Mar 2022 20:56:11,075 TRACE repository.AgencyDBRepo 138 getAll - Exit
+22 Mar 2022 20:56:11,076 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 20:56:11,076 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,076 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 20:56:11,076 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 20:56:11,076 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 20:56:11,077 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 20:56:11,077 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2516f31c)
+22 Mar 2022 20:56:11,078 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 20:56:11,078 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:56:11,079 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,079 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 20:56:11,079 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 20:56:11,079 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 20:56:11,079 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 20:56:11,080 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4e83bb35)
+22 Mar 2022 20:56:11,080 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:56:11,081 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:56:11,081 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,081 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4e83bb35)
+22 Mar 2022 20:56:11,082 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:56:11,082 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:56:11,082 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,082 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4e83bb35)
+22 Mar 2022 20:56:11,083 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:56:11,083 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:56:11,083 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,083 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4e83bb35)
+22 Mar 2022 20:56:11,083 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:56:11,083 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:56:11,083 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,084 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4e83bb35)
+22 Mar 2022 20:56:11,084 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:56:11,084 TRACE repository.ReservationDBRepo 131 getAll - Enter
+22 Mar 2022 20:56:11,084 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,085 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4e83bb35)
+22 Mar 2022 20:56:11,085 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:56:11,085 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,085 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2516f31c)
+22 Mar 2022 20:56:11,085 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:56:11,087 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:56:11,087 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,087 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2516f31c)
+22 Mar 2022 20:56:11,087 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:56:11,088 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:56:11,088 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,088 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2516f31c)
+22 Mar 2022 20:56:11,088 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:56:11,088 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:56:11,088 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,088 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2516f31c)
+22 Mar 2022 20:56:11,089 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:56:11,089 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:56:11,089 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,089 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2516f31c)
+22 Mar 2022 20:56:11,089 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:56:11,090 TRACE repository.ReservationDBRepo 149 getAll - Exit
+22 Mar 2022 20:56:11,090 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 20:56:11,090 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:56:11,090 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2516f31c)
+22 Mar 2022 20:56:11,091 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 20:59:12,037 INFO  repository.AgencyDBRepo 24 <init> - Initializing AgencyDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 20:59:12,044 INFO  repository.TripDBRepo 21 <init> - Initializing TripDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 20:59:12,045 INFO  repository.ReservationDBRepo 27 <init> - Initializing ReservationDBRepo with properties: {jdbc.url=jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db} 
+22 Mar 2022 20:59:19,136 TRACE repository.AgencyDBRepo 144 getByName - Enter
+22 Mar 2022 20:59:19,136 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,136 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 20:59:19,136 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 20:59:19,137 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 20:59:19,137 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 20:59:19,274 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3acc21fc)
+22 Mar 2022 20:59:19,277 TRACE repository.AgencyDBRepo 161 getByName - Exit
+22 Mar 2022 20:59:19,324 TRACE repository.AgencyDBRepo 122 getAll - Enter
+22 Mar 2022 20:59:19,324 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,324 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3acc21fc)
+22 Mar 2022 20:59:19,325 TRACE repository.AgencyDBRepo 138 getAll - Exit
+22 Mar 2022 20:59:19,325 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 20:59:19,326 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,326 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 20:59:19,326 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 20:59:19,326 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 20:59:19,326 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 20:59:19,327 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:19,328 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 20:59:19,328 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:19,328 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,328 TRACE utils.JdbcUtils 22 getNewConnection - Enter
+22 Mar 2022 20:59:19,328 INFO  utils.JdbcUtils 27 getNewConnection - trying to connect to database ... jdbc:sqlite:C:\facultate\Semestrul 4\MPP\projects\AgentiiDeTurismDB\AgentiiDeTurism.db
+22 Mar 2022 20:59:19,329 INFO  utils.JdbcUtils 28 getNewConnection - user: null
+22 Mar 2022 20:59:19,329 INFO  utils.JdbcUtils 29 getNewConnection - pass: null
+22 Mar 2022 20:59:19,329 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:19,330 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:59:19,331 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:19,331 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,331 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:19,332 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:59:19,332 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:19,332 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,332 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:19,333 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:59:19,333 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:19,333 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,333 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:19,333 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:59:19,333 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:19,334 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,334 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:19,334 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:59:19,335 TRACE repository.ReservationDBRepo 131 getAll - Enter
+22 Mar 2022 20:59:19,335 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,335 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:19,336 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:59:19,336 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,336 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:19,336 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:59:19,337 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:59:19,337 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,338 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:19,338 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:59:19,338 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:59:19,338 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,339 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:19,339 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:59:19,339 TRACE repository.ReservationDBRepo 149 getAll - Exit
+22 Mar 2022 20:59:19,339 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 20:59:19,340 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:19,340 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:19,340 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 20:59:37,375 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:59:37,375 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,375 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:37,376 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:59:37,380 TRACE repository.ReservationDBRepo 34 save - Enter Saving Reservation by client on trip to munte for 10 seats
+22 Mar 2022 20:59:37,380 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,380 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:37,388 TRACE repository.ReservationDBRepo 43 save - Saved 1 instances
+22 Mar 2022 20:59:37,388 TRACE repository.ReservationDBRepo 48 save - Exit
+22 Mar 2022 20:59:37,388 TRACE repository.ReservationDBRepo 131 getAll - Enter
+22 Mar 2022 20:59:37,388 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,388 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:37,389 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:59:37,389 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,389 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:37,389 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:59:37,390 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:59:37,390 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,390 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:37,390 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:59:37,391 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:59:37,391 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,391 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:37,391 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:59:37,391 TRACE repository.TripDBRepo 92 getById - Enter
+22 Mar 2022 20:59:37,391 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,391 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:37,392 TRACE repository.TripDBRepo 110 getById - Exit
+22 Mar 2022 20:59:37,392 TRACE repository.ReservationDBRepo 149 getAll - Exit
+22 Mar 2022 20:59:37,392 TRACE repository.TripDBRepo 131 getAll - Enter
+22 Mar 2022 20:59:37,392 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,393 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@42448d8f)
+22 Mar 2022 20:59:37,393 TRACE repository.TripDBRepo 150 getAll - Exit
+22 Mar 2022 20:59:37,393 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:37,393 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,393 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:37,394 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:59:37,394 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:37,394 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,394 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:37,394 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:59:37,394 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:37,394 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,394 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:37,395 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:59:37,395 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:37,395 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,395 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:37,395 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit
+22 Mar 2022 20:59:37,395 TRACE repository.ReservationDBRepo 155 getAvailableSeatsForTrip - Enter
+22 Mar 2022 20:59:37,395 TRACE utils.JdbcUtils 43 getConnection - Enter
+22 Mar 2022 20:59:37,395 TRACE utils.JdbcUtils 51 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@36fba380)
+22 Mar 2022 20:59:37,396 TRACE repository.ReservationDBRepo 168 getAvailableSeatsForTrip - Exit

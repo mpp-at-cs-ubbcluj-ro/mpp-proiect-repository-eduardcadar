@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+group 'AgentiiDeTurism'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    mainModule = 'client'
+    mainClass = 'client.StartClient'
+}
+
+javafx {
+    version = '17.0.0.1'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+    implementation project(':Model')
+    implementation project(':Services')
+    implementation project(':Networking')
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+    implementation 'org.openjfx:javafx:19-ea+3'
+    implementation group: 'org.openjfx', name: 'javafx-controls', version: '19-ea+4'
+}
