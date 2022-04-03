@@ -30,6 +30,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 
-    implementation 'org.openjfx:javafx:19-ea+3'
-    implementation group: 'org.openjfx', name: 'javafx-controls', version: '19-ea+4'
+//    implementation 'org.openjfx:javafx:19-ea+3'
+//    implementation group: 'org.openjfx', name: 'javafx-controls', version: '19-ea+4'
 }

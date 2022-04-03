@@ -11,7 +11,6 @@ import javafx.scene.layout.AnchorPane;
 import model.domain.Agency;
 import model.domain.Reservation;
 import model.domain.Trip;
-import model.utils.MyException;
 import model.utils.Pair;
 import services.IObserver;
 import services.IServices;
@@ -93,11 +92,10 @@ public class MainSceneController implements IObserver {
 
     public void initializeTables() {
         reloadAgenciesList();
+        initializeReservationsTable();
         reloadReservationsTable();
         currentTripLocation = "";
         initializeTripsTable();
-        reloadTripsTable();
-        initializeReservationsTable();
         reloadLocationComboBox();
     }
 
@@ -135,12 +133,9 @@ public class MainSceneController implements IObserver {
             @Override
             protected void updateItem(TripDTO item, boolean empty) {
                 super.updateItem(item, empty);
-                if (item == null)
-                    setStyle("");
-                else if (item.getAvailableSeats() <= 0)
-                    setStyle("-fx-background-color: red;");
-                else
-                    setStyle("");
+                if (item == null) setStyle("");
+                else if (item.getAvailableSeats() <= 0) setStyle("-fx-background-color: red;");
+                else setStyle("");
             }
         });
 
@@ -149,6 +144,14 @@ public class MainSceneController implements IObserver {
         columnTripDepartureTime.setCellValueFactory(new PropertyValueFactory<>("departureTime"));
         columnTripPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         columnTripAvailableSeats.setCellValueFactory(new PropertyValueFactory<>("availableSeats"));
+
+        try {
+            Collection<Trip> trips = srv.getTrips("", minTime, maxTime);
+            Collection<TripDTO> tripDTOS = getTripDTOs(trips, srv.getReservations());
+            Platform.runLater(() -> tableTrips.getItems().setAll(tripDTOS));
+        } catch (ServiceException e) {
+            MyAlert.StartAlert("Error", e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     private void reloadTripsTable() {
@@ -164,16 +167,16 @@ public class MainSceneController implements IObserver {
         } catch (IllegalArgumentException ex) {
             timeBefore = maxTime;
         }
-        Collection<Trip> trips;
         try {
-            trips = srv.getTrips(
+            Collection<Trip> trips = srv.getTrips(
                     currentTripLocation, timeAfter, timeBefore);
+
+            Collection<Reservation> reservations = tableReservations.getItems().stream().toList();
+            Collection<TripDTO> tripDTOS = getTripDTOs(trips, reservations);
+            Platform.runLater(() -> tableTrips.getItems().setAll(tripDTOS));
         } catch (ServiceException ex) {
             MyAlert.StartAlert("Get trips error", ex.getMessage(), Alert.AlertType.ERROR);
-            return;
         }
-        Collection<TripDTO> tripDTOS = getTripDTOs(trips);
-        Platform.runLater(() -> tableTrips.getItems().setAll(tripDTOS));
     }
 
     private void reloadLocationComboBox() {
@@ -199,8 +202,10 @@ public class MainSceneController implements IObserver {
 
     @FXML
     private void onButtonReserveClick() {
-        if (tableTrips.getSelectionModel().getSelectedItems().isEmpty())
+        if (tableTrips.getSelectionModel().getSelectedItems().isEmpty()) {
+            MyAlert.StartAlert("No trip selected", "Select a trip", Alert.AlertType.WARNING);
             return;
+        }
 
         String client = textFieldClient.getText();
         Trip trip = tableTrips.getSelectionModel().getSelectedItem().getTrip();
@@ -246,28 +251,21 @@ public class MainSceneController implements IObserver {
         Platform.runLater(() -> tableTrips.refresh());
     }
 
-    public Collection<TripDTO> getTripDTOs(Collection<Trip> trips) {
+    private Collection<TripDTO> getTripDTOs(Collection<Trip> trips, Collection<Reservation> reservations) {
         List<TripDTO> tripDTOs = new ArrayList<>();
-        try {
-            Collection<Reservation> reservations = srv.getReservations();
+        if (trips != null && !trips.isEmpty())
+            trips.forEach(t -> {
+                int reservedSeats;
+                reservedSeats = reservations.stream()
+                        .filter(r -> r.getTrip().getId().equals(t.getId()))
+                        .mapToInt(Reservation::getSeats)
+                        .sum();
+                int availableSeats = t.getSeats() - reservedSeats;
 
-            if (trips != null && !trips.isEmpty())
-                trips.forEach(t -> {
-                    int reservedSeats = 0;
-                        reservedSeats = reservations.stream()
-                                .filter(r -> r.getTrip().getId().equals(t.getId()))
-                                .mapToInt(Reservation::getSeats)
-                                .sum();
-                    int availableSeats = t.getSeats() - reservedSeats;
-
-                    TripDTO tripDTO = new TripDTO(t.getId(), t, t.getTouristAttraction(), t.getTransportCompany(),
-                            t.getDepartureTime(), t.getPrice(), availableSeats);
-                    tripDTOs.add(tripDTO);
-                });
-        } catch (ServiceException e) {
-            MyAlert.StartAlert("Trips error", e.getMessage(), Alert.AlertType.ERROR);
-        }
-
+                TripDTO tripDTO = new TripDTO(t.getId(), t, t.getTouristAttraction(), t.getTransportCompany(),
+                        t.getDepartureTime(), t.getPrice(), availableSeats);
+                tripDTOs.add(tripDTO);
+            });
         return tripDTOs;
     }
 

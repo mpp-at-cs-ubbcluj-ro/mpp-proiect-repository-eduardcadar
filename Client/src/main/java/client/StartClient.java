@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class StartClient extends Application {
-    private Stage primaryStage;
     private static final int defaultPort = 55553;
     private static final String defaultServer = "localhost";
 
