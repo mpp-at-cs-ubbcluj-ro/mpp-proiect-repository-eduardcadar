@@ -88,7 +88,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".editorconfig" />
     <None Include=".github\.keep" />
     <None Include=".git\config" />
     <None Include=".git\description" />
@@ -116,56 +115,14 @@
     <None Include=".git\packed-refs" />
     <None Include=".git\refs\heads\main" />
     <None Include=".git\refs\remotes\origin\HEAD" />
-    <None Include=".vs\AgentiiDeTurismCSharp\v16\.suo" />
-    <None Include=".vs\ProjectSettings.json" />
-    <None Include=".vs\slnx.sqlite" />
-    <None Include=".vs\VSWorkspaceState.json" />
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\controller\MyForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\controller\MyForm.Designer.cs">
-      <DependentUpon>MyForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\controller\TabLogin.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="src\controller\TabLogin.Designer.cs">
-      <DependentUpon>TabLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\controller\TabMain.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="src\controller\TabMain.Designer.cs">
-      <DependentUpon>TabMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="src\utils\TripDTO.cs" />
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="src\domain\Agency.cs" />
-    <Compile Include="src\domain\IIdentifiable.cs" />
-    <Compile Include="src\domain\Reservation.cs" />
-    <Compile Include="src\domain\Trip.cs" />
     <Compile Include="src\Program.cs" />
-    <Compile Include="src\repository\AgencyDBRepo.cs" />
-    <Compile Include="src\repository\IAgencyRepo.cs" />
-    <Compile Include="src\repository\ReservationDBRepo.cs" />
-    <Compile Include="src\repository\TripDBRepo.cs" />
-    <Compile Include="src\service\AgencyService.cs" />
-    <Compile Include="src\service\ReservationService.cs" />
-    <Compile Include="src\service\Service.cs" />
-    <Compile Include="src\service\TripService.cs" />
-    <Compile Include="src\utils\DBUtils.cs" />
-    <Compile Include="src\repository\IRepoInterface.cs" />
-    <Compile Include="src\repository\IReservationRepo.cs" />
-    <Compile Include="src\repository\ITripRepo.cs" />
-    <Compile Include="src\utils\ConnectionFactory.cs" />
-    <Compile Include="src\utils\SQLiteConnectionFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".git\objects\info\" />
@@ -177,17 +134,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="src\controller\MyForm.resx">
-      <DependentUpon>MyForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\controller\TabLogin.resx">
-      <DependentUpon>TabLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\controller\TabMain.resx">
-      <DependentUpon>TabMain.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
