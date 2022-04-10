@@ -4,9 +4,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using Model;
 using Networking.dto;
 using Services;
@@ -98,7 +96,10 @@ namespace Networking.rpc
             Reservation reservation = (Reservation)request.Data;
             try
             {
-                _server.SaveReservation(reservation);
+                lock (_server)
+                {
+                    _server.SaveReservation(reservation);
+                }
                 return _okResponse;
             }
             catch (ServiceException e)
@@ -112,8 +113,11 @@ namespace Networking.rpc
             Console.WriteLine("Get reservations request.." + request.Type);
             try
             {
-                IEnumerable<Reservation> reservationsCol = _server.GetReservations();
-                //Reservation[] reservations = reservationsCol.ToArray(new Reservation[0]);
+                IEnumerable<Reservation> reservationsCol;
+                lock (_server)
+                {
+                    reservationsCol = _server.GetReservations();
+                }
                 Reservation[] reservations = reservationsCol.ToArray();
 
                 return new Response.Builder().Type(ResponseType.GET_RESERVATIONS).Data(reservations).Build();
@@ -131,8 +135,11 @@ namespace Networking.rpc
             TripFilterDTO fDTO = (TripFilterDTO)request.Data;
             try
             {
-                IEnumerable<Trip> tripsCol = _server.GetTrips(fDTO.Destination, fDTO.StartTime, fDTO.EndTime);
-                //Trip[] trips = tripsCol.ToArray(new Trip[0]);
+                IEnumerable<Trip> tripsCol;
+                lock (_server)
+                {
+                    tripsCol = _server.GetTrips(fDTO.Destination, fDTO.StartTime, fDTO.EndTime);
+                }
                 Trip[] trips = tripsCol.ToArray();
                 return new Response.Builder().Type(ResponseType.GET_TRIPS).Data(trips).Build();
             }
@@ -148,8 +155,14 @@ namespace Networking.rpc
             Console.WriteLine("Get agencies request.." + request.Type);
             try
             {
-                IEnumerable<Agency> agenciesCol = _server.GetAgencies();
-                //Agency[] agencies = agenciesCol.ToArray(new Agency[0]);
+
+                IEnumerable<Agency> agenciesCol;
+
+                lock (_server)
+                {
+                    agenciesCol = _server.GetAgencies();
+                }
+
                 Agency[] agencies = agenciesCol.ToArray();
                 return new Response.Builder().Type(ResponseType.GET_AGENCIES).Data(agencies).Build();
             }
@@ -166,7 +179,10 @@ namespace Networking.rpc
             Agency agency = (Agency)request.Data;
             try
             {
-                _server.Logout(agency, this);
+                lock (_server)
+                {
+                    _server.Logout(agency, this);
+                }
                 _connected = false;
                 return _okResponse;
             }
@@ -182,7 +198,10 @@ namespace Networking.rpc
             Agency agency = (Agency)request.Data;
             try
             {
-                _server.Login(agency, this);
+                lock (_server)
+                {
+                    _server.Login(agency, this);
+                }
                 return _okResponse;
             }
             catch (ServiceException ex)
