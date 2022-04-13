@@ -2,66 +2,59 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
-using Model;
-using Networking.dto;
+using Google.Protobuf;
+using Protobuf;
 using Services;
 
-namespace Networking.rpc
+namespace Networking.protobuf
 {
-    public class ServicesRpcProxy : IServices
+    public class ProtoProxy : IServices
     {
         private readonly string _host;
         private readonly int _port;
-        
         private IObserver _client;
-        
         private NetworkStream _stream;
 
-        private IFormatter _formatter;
         private TcpClient _connection;
         private volatile bool _finished;
 
         private Queue<Response> _responses;
         private EventWaitHandle _waitHandle;
 
-        public ServicesRpcProxy(string host, int port)
+        public ProtoProxy(string host, int port)
         {
             _host = host;
             _port = port;
             _responses = new Queue<Response>();
         }
 
-        public void Login(Agency agency, IObserver observer)
+        public void Login(Model.Agency agency, IObserver observer)
         {
             InitializeConnection();
-            Request request = new Request.Builder().Type(RequestType.LOGIN).Data(agency).Build();
-            SendRequest(request);
+            SendRequest(ProtoUtils.CreateLoginRequest(agency));
             Response response = ReadResponse();
-            if (response.Type == ResponseType.OK)
+            if (response.Type == Response.Types.Type.Ok)
             {
                 _client = observer;
                 return;
             }
-            if (response.Type == ResponseType.ERROR)
+            if (response.Type == Response.Types.Type.Error)
             {
-                string err = response.Data.ToString();
+                string err = response.Error;
                 CloseConnection();
                 throw new ServiceException(err);
             }
         }
 
-        public void Logout(Agency agency, IObserver observer)
+        public void Logout(Model.Agency agency, IObserver observer)
         {
-            Request request = new Request.Builder().Type(RequestType.LOGOUT).Data(agency).Build();
-            SendRequest(request);
+            SendRequest(ProtoUtils.CreateLogoutRequest(agency));
             Response response = ReadResponse();
             CloseConnection();
-            if (response.Type == ResponseType.ERROR)
+            if (response.Type == Response.Types.Type.Error)
             {
-                string err = response.Data.ToString();
+                string err = response.Error;
                 throw new ServiceException(err);
             }
         }
@@ -103,8 +96,12 @@ namespace Networking.rpc
         {
             try
             {
-                _formatter.Serialize(_stream, request);
-                _stream.Flush();
+                lock (_stream)
+                {
+                    request.WriteDelimitedTo(_stream);
+                    _stream.Flush();
+                }
+                
             }
             catch (Exception e)
             {
@@ -112,57 +109,56 @@ namespace Networking.rpc
             }
         }
 
-        public IEnumerable<Agency> GetAgencies()
+        public IEnumerable<Model.Agency> GetAgencies()
         {
-            Request request = new Request.Builder().Type(RequestType.GET_AGENCIES).Build();
-            SendRequest(request);
+            SendRequest(ProtoUtils.CreateGetAgenciesRequest());
             Response response = ReadResponse();
-            if (response.Type == ResponseType.ERROR)
+            if (response.Type == Response.Types.Type.Error)
             {
-                string err = response.Data.ToString();
+                string err = response.Error;
                 throw new ServiceException(err);
             }
-            Agency[] agencies = (Agency[])response.Data;
+            Model.Agency[] agencies = ProtoUtils.GetAgencies(response);
             return agencies.ToArray();
         }
 
-        public IEnumerable<Trip> GetTrips(string destination, TimeSpan startTime, TimeSpan endTime)
+        public IEnumerable<Model.Trip> GetTrips(string destination, TimeSpan startTime, TimeSpan endTime)
         {
-            TripFilterDTO filterDTO = new() { Destination = destination, StartTime = startTime, EndTime = endTime };
-            Request request = new Request.Builder().Type(RequestType.GET_TRIPS).Data(filterDTO).Build();
+            dto.TripFilterDTO filterDTO = new() { Destination = destination, StartTime = startTime, EndTime = endTime };
+            Request request = ProtoUtils.CreateGetTripsRequest(filterDTO);
             SendRequest(request);
             Response response = ReadResponse();
-            if (response.Type == ResponseType.ERROR)
+            if (response.Type == Response.Types.Type.Error)
             {
-                string err = response.Data.ToString();
+                string err = response.Error;
                 throw new ServiceException(err);
             }
-            Trip[] trips = (Trip[])response.Data;
+            Model.Trip[] trips = ProtoUtils.GetTrips(response);
             return trips.ToArray();
         }
 
-        public IEnumerable<Reservation> GetReservations()
+        public IEnumerable<Model.Reservation> GetReservations()
         {
-            Request request = new Request.Builder().Type(RequestType.GET_RESERVATIONS).Build();
+            Request request = ProtoUtils.CreateGetReservationsRequest();
             SendRequest(request);
             Response response = ReadResponse();
-            if (response.Type == ResponseType.ERROR)
+            if (response.Type == Response.Types.Type.Error)
             {
-                string err = response.Data.ToString();
+                string err = response.Error;
                 throw new ServiceException(err);
             }
-            Reservation[] reservations = (Reservation[])response.Data;
+            Model.Reservation[] reservations = ProtoUtils.GetReservations(response);
             return reservations.ToArray();
         }
 
-        public void SaveReservation(Reservation reservation)
+        public void SaveReservation(Model.Reservation reservation)
         {
-            Request request = new Request.Builder().Type(RequestType.SAVE_RESERVATION).Data(reservation).Build();
+            Request request = ProtoUtils.CreateSaveReservationRequest(reservation);
             SendRequest(request);
             Response response = ReadResponse();
-            if (response.Type == ResponseType.ERROR)
+            if (response.Type == Response.Types.Type.Error)
             {
-                string err = response.Data.ToString();
+                string err = response.Error;
                 throw new ServiceException(err);
             }
         }
@@ -173,7 +169,6 @@ namespace Networking.rpc
             {
                 _connection = new TcpClient(_host, _port);
                 _stream = _connection.GetStream();
-                _formatter = new BinaryFormatter();
                 _finished = false;
                 _waitHandle = new AutoResetEvent(false);
                 StartReader();
@@ -192,9 +187,9 @@ namespace Networking.rpc
 
         private void HandleUpdate(Response response)
         {
-            if (response.Type == ResponseType.NEW_RESERVATION)
+            if (response.Type == Response.Types.Type.NewReservation)
             {
-                Reservation reservation = (Reservation)response.Data;
+                Model.Reservation reservation = ProtoUtils.GetReservation(response);
                 try
                 {
                     _client.ReservationSaved(reservation);
@@ -208,7 +203,7 @@ namespace Networking.rpc
 
         private static bool IsUpdate(Response response)
         {
-            return response.Type == ResponseType.NEW_RESERVATION;
+            return response.Type == Response.Types.Type.NewReservation;
         }
 
         public virtual void Run()
@@ -217,15 +212,15 @@ namespace Networking.rpc
             {
                 try
                 {
-                    object response = _formatter.Deserialize(_stream);
+                    Response response = Response.Parser.ParseDelimitedFrom(_stream);
                     Console.WriteLine("Response received: " + response);
-                    if (IsUpdate((Response)response))
-                        HandleUpdate((Response)response);
+                    if (IsUpdate(response))
+                        HandleUpdate(response);
                     else
                     {
                         lock (_responses)
                         {
-                            _responses.Enqueue((Response)response);
+                            _responses.Enqueue(response);
                         }
                         _waitHandle.Set();
                     }

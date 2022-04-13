@@ -20,6 +20,15 @@ namespace Model
             Seats = seats;
         }
 
+        public Reservation(string client, Trip trip, string agency, string phoneNumber, int seats)
+        {
+            Client = client;
+            Trip = trip;
+            Agency = agency;
+            PhoneNumber = phoneNumber;
+            Seats = seats;
+        }
+
         public Tuple<string, Trip> getId()
         {
             return new Tuple<string, Trip>(Client, Trip);

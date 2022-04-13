@@ -8,7 +8,7 @@ using Server.server;
 
 namespace Server
 {
-    public static class StartRpcServer
+    public static class StartServer
     {
         static void Main(string[] args)
         {
@@ -36,7 +36,9 @@ namespace Server
             int port = int.Parse(ConfigurationManager.AppSettings.Get("port"));
             Console.WriteLine("Port " + port);
 
-            AbstractServer server = new RpcConcurrentServer(host, port, service);
+            AbstractServer server;
+            //server = new RpcConcurrentServer(host, port, service);
+            server = new ProtoServer(host, port, service);
 
             server.Start();
         }

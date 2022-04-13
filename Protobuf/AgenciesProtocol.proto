@@ -1,0 +1,52 @@
+syntax="proto3";
+package protobuf;
+
+message Agency {
+	string Name=1;
+	string Password=2;
+}
+
+message Trip {
+	int32 id=1;
+	string touristAttraction=2;
+	string transportCompany=3;
+	string departureTime=4;
+	float price=5;
+	int32 seats=6;
+}
+
+message Reservation {
+	string client=1;
+	Trip trip=2;
+	string agency=3;
+	string phoneNumber=4;
+	int32 seats=5;
+}
+
+message TripFilterDTO {
+	string destination=1;
+	string startTime=2;
+	string endTime=3;
+}
+
+message Request {
+	enum Type {Login=0; Logout=1; GetAgencies=2; GetTrips=3; GetReservations=4; SaveReservation=5;}
+
+	Type type=1;
+	oneof payload {
+		Agency agency=2;
+		TripFilterDTO tripFilterDTO=3;
+		Reservation reservation=4;
+	}
+}
+
+message Response {
+	enum Type {Ok=0; Error=1; GetAgencies=2; GetTrips=3; GetReservations=4; NewReservation=5;}
+
+	Type type=1;
+	string error=2;
+	Reservation reservation=3;
+	repeated Reservation reservations=4;
+	repeated Trip trips=5;
+	repeated Agency agencies=6;
+}

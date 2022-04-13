@@ -2,31 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
-using Model;
-using Networking.dto;
+using Google.Protobuf;
+using Protobuf;
 using Services;
 
-namespace Networking.rpc
+namespace Networking.protobuf
 {
-    public class ClientRpcWorker : IObserver
+    public class ProtoWorker : IObserver
     {
         private readonly IServices _server;
         private readonly TcpClient _connection;
         private readonly NetworkStream _stream;
-        private readonly IFormatter _formatter;
         private volatile bool _connected;
 
-        public ClientRpcWorker(IServices server, TcpClient connection)
+        public ProtoWorker(IServices server, TcpClient connection)
         {
             _server = server;
             _connection = connection;
             try
             {
                 _stream = _connection.GetStream();
-                _formatter = new BinaryFormatter();
                 _connected = true;
             }
             catch (Exception e)
@@ -41,10 +37,10 @@ namespace Networking.rpc
             {
                 try
                 {
-                    object request = _formatter.Deserialize(_stream);
-                    object response = HandleRequest((Request)request);
+                    Request request = Request.Parser.ParseDelimitedFrom(_stream);
+                    Response response = HandleRequest(request);
                     if (response != null)
-                        SendResponse((Response)response);
+                        SendResponse(response);
                 }
                 catch (Exception e)
                 {
@@ -76,110 +72,106 @@ namespace Networking.rpc
             Console.WriteLine("Sending response " + response);
             lock (_stream)
             {
-                _formatter.Serialize(_stream, response);
+                response.WriteDelimitedTo(_stream);
                 _stream.Flush();
             }
         }
 
-            private object HandleRequest(Request request)
+        private Response HandleRequest(Request request)
         {
-            if (request.Type == RequestType.LOGIN) return HandleLogin(request);
-            if (request.Type == RequestType.LOGOUT) return HandleLogout(request);
-            if (request.Type == RequestType.GET_AGENCIES) return HandleGetAgencies(request);
-            if (request.Type == RequestType.GET_TRIPS) return HandleGetTrips(request);
-            if (request.Type == RequestType.GET_RESERVATIONS) return HandleGetReservations(request);
-            if (request.Type == RequestType.SAVE_RESERVATION) return HandleSaveReservation(request);
-            return null;
+            return request.Type switch
+            {
+                Request.Types.Type.Login => HandleLogin(request),
+                Request.Types.Type.Logout => HandleLogout(request),
+                Request.Types.Type.GetAgencies => HandleGetAgencies(request),
+                Request.Types.Type.GetTrips => HandleGetTrips(request),
+                Request.Types.Type.GetReservations => HandleGetReservations(request),
+                Request.Types.Type.SaveReservation => HandleSaveReservation(request),
+                _ => null
+            };
         }
 
-        private static readonly Response _okResponse = new Response.Builder().Type(ResponseType.OK).Build();
-        private object HandleSaveReservation(Request request)
+        private Response HandleSaveReservation(Request request)
         {
             Console.WriteLine("Save reservation request.." + request.Type);
-            Reservation reservation = (Reservation)request.Data;
+            Model.Reservation reservation = ProtoUtils.GetReservation(request);
             try
             {
                 lock (_server)
                 {
                     _server.SaveReservation(reservation);
                 }
-                return _okResponse;
+                return ProtoUtils.CreateOkResponse();
             }
-            catch (ServiceException e)
+            catch (ServiceException ex)
             {
-                return new Response.Builder().Type(ResponseType.ERROR).Data(e.Message).Build();
+                return ProtoUtils.CreateErrorResponse(ex.Message);
             }
         }
 
-        private object HandleGetReservations(Request request)
+        private Response HandleGetReservations(Request request)
         {
             Console.WriteLine("Get reservations request.." + request.Type);
             try
             {
-                IEnumerable<Reservation> reservationsCol;
+                IEnumerable<Model.Reservation> reservationsCol;
                 lock (_server)
                 {
                     reservationsCol = _server.GetReservations();
                 }
-                Reservation[] reservations = reservationsCol.ToArray();
+                Model.Reservation[] reservations = reservationsCol.ToArray();
 
-                return new Response.Builder().Type(ResponseType.GET_RESERVATIONS).Data(reservations).Build();
+                return ProtoUtils.CreateGetReservationsResponse(reservations);
             }
             catch (ServiceException ex)
             {
-                _connected = false;
-                return new Response.Builder().Type(ResponseType.ERROR).Data(ex.Message).Build();
+                return ProtoUtils.CreateErrorResponse(ex.Message);
             }
         }
 
-        private object HandleGetTrips(Request request)
+        private Response HandleGetTrips(Request request)
         {
             Console.WriteLine("Get trips request.." + request.Type);
-            TripFilterDTO fDTO = (TripFilterDTO)request.Data;
+            dto.TripFilterDTO fDTO = ProtoUtils.GetTripFilterDTO(request);
             try
             {
-                IEnumerable<Trip> tripsCol;
+                IEnumerable<Model.Trip> tripsCol;
                 lock (_server)
                 {
                     tripsCol = _server.GetTrips(fDTO.Destination, fDTO.StartTime, fDTO.EndTime);
                 }
-                Trip[] trips = tripsCol.ToArray();
-                return new Response.Builder().Type(ResponseType.GET_TRIPS).Data(trips).Build();
+                Model.Trip[] trips = tripsCol.ToArray();
+                return ProtoUtils.CreateGetTripsResponse(trips);
             }
             catch (ServiceException ex)
             {
-                _connected = false;
-                return new Response.Builder().Type(ResponseType.ERROR).Data(ex.Message).Build();
+                return ProtoUtils.CreateErrorResponse(ex.Message);
             }
         }
 
-        private object HandleGetAgencies(Request request)
+        private Response HandleGetAgencies(Request request)
         {
             Console.WriteLine("Get agencies request.." + request.Type);
             try
             {
-
-                IEnumerable<Agency> agenciesCol;
-
+                IEnumerable<Model.Agency> agenciesCol;
                 lock (_server)
                 {
                     agenciesCol = _server.GetAgencies();
                 }
-
-                Agency[] agencies = agenciesCol.ToArray();
-                return new Response.Builder().Type(ResponseType.GET_AGENCIES).Data(agencies).Build();
+                Model.Agency[] agencies = agenciesCol.ToArray();
+                return ProtoUtils.CreateGetAgenciesResponse(agencies);
             }
             catch (ServiceException ex)
             {
-                _connected = false;
-                return new Response.Builder().Type(ResponseType.ERROR).Data(ex.Message).Build();
+                return ProtoUtils.CreateErrorResponse(ex.Message);
             }
         }
 
-        private object HandleLogout(Request request)
+        private Response HandleLogout(Request request)
         {
             Console.WriteLine("Logout request.." + request.Type);
-            Agency agency = (Agency)request.Data;
+            Model.Agency agency = ProtoUtils.GetAgency(request);
             try
             {
                 lock (_server)
@@ -187,40 +179,38 @@ namespace Networking.rpc
                     _server.Logout(agency, this);
                 }
                 _connected = false;
-                return _okResponse;
+                return ProtoUtils.CreateOkResponse();
             }
             catch (ServiceException ex)
             {
-                return new Response.Builder().Type(ResponseType.ERROR).Data(ex.Message).Build();
+                return ProtoUtils.CreateErrorResponse(ex.Message);
             }
         }
 
-        private object HandleLogin(Request request)
+        private Response HandleLogin(Request request)
         {
-            Console.WriteLine("Login request.." + request.Type);
-            Agency agency = (Agency)request.Data;
+            Console.WriteLine("Login request..");
+            Model.Agency agency = ProtoUtils.GetAgency(request);
             try
             {
                 lock (_server)
                 {
                     _server.Login(agency, this);
                 }
-                return _okResponse;
+                return ProtoUtils.CreateOkResponse();
             }
             catch (ServiceException ex)
             {
-                _connected = false;
-                return new Response.Builder().Type(ResponseType.ERROR).Data(ex.Message).Build();
+                return ProtoUtils.CreateErrorResponse(ex.Message);
             }
         }
 
-        public void ReservationSaved(Reservation reservation)
+        public void ReservationSaved(Model.Reservation reservation)
         {
-            Response response = new Response.Builder().Type(ResponseType.NEW_RESERVATION).Data(reservation).Build();
             Console.WriteLine("Reservation saved: " + reservation);
             try
             {
-                SendResponse(response);
+                SendResponse(ProtoUtils.CreateNewReservationResponse(reservation));
             }
             catch (Exception e)
             {

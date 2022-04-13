@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Net.Sockets;
 using System.Threading;
-using Networking.rpc;
+using Networking.protobuf;
 using Services;
 
 namespace Networking.server
 {
-    public class RpcConcurrentServer : AbsConcurrentServer
+    public class ProtoServer : AbsConcurrentServer
     {
         private readonly IServices _server;
-
-        public RpcConcurrentServer(string host, int port, IServices server) : base(host, port)
+        public ProtoServer(string host, int port, IServices server) : base(host, port)
         {
             _server = server;
-            Console.WriteLine("RpcConcurrentServer...");
+            Console.WriteLine("ProtoServer...");
         }
 
         protected override Thread CreateWorker(TcpClient client)
         {
-            ClientRpcWorker worker = new(_server, client);
+            ProtoWorker worker = new(_server, client);
             return new Thread(new ThreadStart(worker.Run));
         }
     }

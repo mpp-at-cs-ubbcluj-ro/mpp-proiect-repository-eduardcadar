@@ -10,13 +10,13 @@ namespace Model
         
         public Agency(string name, string password)
         {
-            this.Name = name;
-            this.Password = password;
+            Name = name;
+            Password = password;
         }
 
         public override string ToString()
         {
-            return this.Name;
+            return Name;
         }
 
         public string getId()
