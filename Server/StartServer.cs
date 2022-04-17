@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using log4net.Config;
+using Microsoft.EntityFrameworkCore;
 using Networking.server;
 using Persistence;
+using Persistence.orm;
+using Persistence.orm.repos;
 using Server.server;
 
 namespace Server
@@ -13,15 +17,31 @@ namespace Server
         static void Main(string[] args)
         {
             XmlConfigurator.Configure(new System.IO.FileInfo("log4net.xml"));
-            Console.WriteLine("Configuration Settings for agenciesDB {0}", GetConnectionStringByName("agenciesDB"));
+
+            //string connectionString = ConfigurationManager.AppSettings["connectionString"]; // ORM
+            string connectionString = GetConnectionStringByName("agenciesDB");
+            Console.WriteLine("Configuration Settings for agenciesDB {0}", connectionString);
             IDictionary<string, string> props = new SortedList<string, string>
             {
-                { "ConnectionString", GetConnectionStringByName("agenciesDB") }
+                { "ConnectionString", connectionString }
             };
+
+            //var sqlConnectionStringBuilder = new SqlConnectionStringBuilder(connectionString);
+
+            //var dbContextOptionsBuilder = new DbContextOptionsBuilder<AgenciesContext>()
+            //    .UseSqlServer(sqlConnectionStringBuilder.ConnectionString,
+            //    options => options.EnableRetryOnFailure(10, TimeSpan.FromSeconds(30), null));
+
+            //AgenciesContext context = new(dbContextOptionsBuilder.Options);
+            //context.Database.Migrate();
 
             IAgencyRepo agencyRepo = new AgencyDBRepo(props);
             ITripRepo tripRepo = new TripDBRepo(props);
             IReservationRepo reservationRepo = new ReservationDBRepo(props, tripRepo);
+
+            //IAgencyRepo agencyRepo = new AgencyDbOrmRepo(connectionString);
+            //ITripRepo tripRepo = new TripDbOrmRepo(connectionString);
+            //IReservationRepo reservationRepo = new ReservationDbOrmRepo(connectionString);
 
             AgencyService agencyService = new(agencyRepo);
             TripService tripService = new(tripRepo);
