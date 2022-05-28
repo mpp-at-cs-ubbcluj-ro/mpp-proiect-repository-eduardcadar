@@ -1,51 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Model;
+﻿using Model;
 using Services;
+using Services.ams;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Server.server
 {
-    public class Service : IServices
+    public class ServerAMS : IServicesAMS
     {
         private readonly AgencyService _agencySrv;
         private readonly TripService _tripSrv;
         private readonly ReservationService _resSrv;
-        private readonly IDictionary<string, IObserver> _loggedAgencies;
+        private readonly INotificationService _notificationSrv;
+        private readonly ICollection<string> _loggedAgencies;
 
-        public Service(AgencyService agencySrv, TripService tripSrv, ReservationService resSrv)
+        public ServerAMS(AgencyService agencySrv, TripService tripSrv,
+            ReservationService resSrv, INotificationService notificationSrv)
         {
             _agencySrv = agencySrv;
             _tripSrv = tripSrv;
             _resSrv = resSrv;
-            _loggedAgencies = new Dictionary<string, IObserver>();
+            _notificationSrv = notificationSrv;
+            _loggedAgencies = new List<string>();
         }
 
-        public void Login(Agency agency, IObserver observer)
+        public void Login(Agency agency)
         {
             Agency agency2 = _agencySrv.Get(agency);
             if (agency2 != null)
             {
-                if (_loggedAgencies.ContainsKey(agency.Name))
+                if (_loggedAgencies.Contains(agency.Name))
                     throw new ServiceException("Agency already logged in");
-                _loggedAgencies[agency.Name] = observer;
+                _loggedAgencies.Add(agency.Name);
             }
             else
                 throw new ServiceException("Authentication failed");
         }
 
-        public void Logout(Agency agency, IObserver observer)
+        public void Logout(Agency agency)
         {
-            IObserver localObserver = _loggedAgencies[agency.Name];
-            if (localObserver == null)
+            if (!_loggedAgencies.Contains(agency.Name))
                 throw new ServiceException("Agency " + agency.Name + "is not logged in");
             _loggedAgencies.Remove(agency.Name);
         }
 
         public IEnumerable<Agency> GetAgencies() => _agencySrv.GetAll();
 
-        public IEnumerable<Trip> GetTrips(string destination, TimeSpan startTime, TimeSpan endTime) =>
-            _tripSrv.GetTouristAttractionTrips(destination, startTime, endTime);
+        public IEnumerable<Trip> GetTrips(string destination, TimeSpan startTime, TimeSpan endTime)
+            => _tripSrv.GetTouristAttractionTrips(destination, startTime, endTime);
 
         public IEnumerable<Reservation> GetReservations() => _resSrv.GetAllReservations();
 
@@ -54,6 +59,7 @@ namespace Server.server
             try
             {
                 _resSrv.SaveReservation(reservation);
+                _notificationSrv.NewReservation(reservation);
             }
             catch (ArgumentException e)
             {
@@ -63,10 +69,6 @@ namespace Server.server
             {
                 throw new ServiceException(e.Message);
             }
-
-            foreach (KeyValuePair<string, IObserver> entry in _loggedAgencies)
-                if (entry.Key != reservation.Agency)
-                    Task.Run(() => entry.Value.ReservationSaved(reservation));
         }
     }
 }

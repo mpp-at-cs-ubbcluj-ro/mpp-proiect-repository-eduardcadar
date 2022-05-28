@@ -1,5 +1,4 @@
 ﻿using Model;
-using System;
 
 namespace Persistence.orm.entities
 {
@@ -48,12 +47,11 @@ namespace Persistence.orm.entities
 
         public static ReservationEntity ReservationToReservationEntity(Reservation elem)
         {
-            var tripEntity = TripToTripEntity(elem.Trip);
-            var agencyEntity = new AgencyEntity { Name = elem.Agency };
+            var trip = TripToTripEntity(elem.Trip);
             var reservationEntity = new ReservationEntity
             {
-                Trip = tripEntity,
-                Agency = agencyEntity,
+                TripId = elem.Trip.Id,
+                AgencyId = elem.Agency,
                 Client = elem.Client,
                 PhoneNumber = elem.PhoneNumber,
                 Seats = elem.Seats

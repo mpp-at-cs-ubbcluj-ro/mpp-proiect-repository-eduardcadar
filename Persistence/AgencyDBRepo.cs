@@ -104,7 +104,7 @@ namespace Persistence
             return null;
         }
 
-        public void Save(Agency elem)
+        public Agency Save(Agency elem)
         {
             _log.InfoFormat("Entering save with value {0}", elem);
             IDbConnection con = DBUtils.GetConnection(_props);
@@ -127,6 +127,7 @@ namespace Persistence
                 _log.InfoFormat("Saved {0} agencies", result);
             }
             _log.Info("Exiting save");
+            return elem;
         }
         public void Update(Agency elem, int id)
         {

@@ -114,12 +114,11 @@ namespace Networking.protobuf
             Console.WriteLine("Get reservations request.." + request.Type);
             try
             {
-                IEnumerable<Model.Reservation> reservationsCol;
+                Model.Reservation[] reservations;
                 lock (_server)
                 {
-                    reservationsCol = _server.GetReservations();
+                    reservations = _server.GetReservations().ToArray();
                 }
-                Model.Reservation[] reservations = reservationsCol.ToArray();
 
                 return ProtoUtils.CreateGetReservationsResponse(reservations);
             }

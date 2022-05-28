@@ -9,9 +9,9 @@ namespace Persistence.orm.repos
     {
         private readonly AgenciesContext _context;
 
-        public AgencyDbOrmRepo(string connectionString)
+        public AgencyDbOrmRepo(AgenciesContext context)
         {
-            _context = DBUtils.GetDbContext(connectionString);
+            _context = context;
         }
 
         public Agency Get(string name, string password)
@@ -36,11 +36,12 @@ namespace Persistence.orm.repos
             return agency;
         }
 
-        public void Save(Agency elem)
+        public Agency Save(Agency elem)
         {
             var agencyEntity = EntityUtils.AgencyToAgencyEntity(elem);
             _context.Agencies.Add(agencyEntity);
             _context.SaveChanges();
+            return EntityUtils.AgencyEntityToAgency(agencyEntity);
         }
     }
 }

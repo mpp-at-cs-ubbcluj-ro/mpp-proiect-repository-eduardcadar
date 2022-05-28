@@ -19,7 +19,7 @@ namespace Networking.protobuf
         private TcpClient _connection;
         private volatile bool _finished;
 
-        private Queue<Response> _responses;
+        private readonly Queue<Response> _responses;
         private EventWaitHandle _waitHandle;
 
         public ProtoProxy(string host, int port)
@@ -181,7 +181,7 @@ namespace Networking.protobuf
 
         private void StartReader()
         {
-            Thread tw = new Thread(Run);
+            Thread tw = new(Run);
             tw.Start();
         }
 

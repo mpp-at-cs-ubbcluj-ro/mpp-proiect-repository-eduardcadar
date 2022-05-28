@@ -18,7 +18,5 @@ namespace Server.server
             _repo.Save(reservation);
 
         public IEnumerable<Reservation> GetAllReservations() => _repo.GetAll();
-
-        public int GetAvailableSeatsForTrip(Trip trip) => _repo.getAvailableSeatsForTrip(trip);
     }
 }

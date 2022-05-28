@@ -12,5 +12,10 @@ namespace Persistence.orm
         public AgenciesContext(DbContextOptions op) : base(op)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ReservationEntity>().HasKey(res => new { res.TripId, res.Client});
+        }
     }
 }

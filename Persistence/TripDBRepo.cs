@@ -161,7 +161,7 @@ namespace Persistence
             }
         }
 
-        public void Save(Trip elem)
+        public Trip Save(Trip elem)
         {
             log.InfoFormat("Entering save with value {0}", elem);
             IDbConnection con = DBUtils.GetConnection(props);
@@ -201,6 +201,7 @@ namespace Persistence
                 log.InfoFormat("Saved {0} trips", result);
             }
             log.Info("Exiting save");
+            return elem;
         }
 
         public void Update(Trip elem, int id)

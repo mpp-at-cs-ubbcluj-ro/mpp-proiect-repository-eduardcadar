@@ -133,7 +133,7 @@ namespace Persistence
             return null;
         }
 
-        public void Save(Reservation elem)
+        public Reservation Save(Reservation elem)
         {
             log.InfoFormat("Entering save with value {0}", elem);
             IDbConnection con = DBUtils.GetConnection(props);
@@ -173,6 +173,7 @@ namespace Persistence
                 log.InfoFormat("Saved {0} trips", result);
             }
             log.Info("Exiting save");
+            return elem;
         }
 
         public void Update(Reservation elem, Tuple<string, Trip> id)
@@ -209,34 +210,6 @@ namespace Persistence
                 log.InfoFormat("Updated {0} reservations", result);
             }
             log.Info("Exiting update");
-        }
-
-        public int getAvailableSeatsForTrip(Trip trip)
-        {
-            log.InfoFormat("Entering getAvailableSeatsForTrip with value {0}", trip);
-            int reservedSeats = 0;
-            IDbConnection con = DBUtils.GetConnection(props);
-
-
-            using (var comm = con.CreateCommand())
-            {
-                comm.CommandText = "select coalesce(sum(seats), 0) as reserved_seats from " + tableName + " where id_trip = @idTrip";
-
-                IDbDataParameter paramIdTrip = comm.CreateParameter();
-                paramIdTrip.ParameterName = "@idTrip";
-                paramIdTrip.Value = trip.Id;
-                comm.Parameters.Add(paramIdTrip);
-
-                using (var dataR = comm.ExecuteReader())
-                {
-                    if (dataR.Read())
-                    {
-                        reservedSeats = dataR.GetInt32(0);
-                    }
-                }
-            }
-            log.InfoFormat("Exiting getAvailableSeatsForTrip with value {0}", trip.Seats - reservedSeats);
-            return trip.Seats - reservedSeats;
         }
     }
 }

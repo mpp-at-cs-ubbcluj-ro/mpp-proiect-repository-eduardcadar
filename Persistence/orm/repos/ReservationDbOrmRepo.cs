@@ -3,8 +3,6 @@ using Persistence.orm.entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence.orm.repos
 {
@@ -12,22 +10,22 @@ namespace Persistence.orm.repos
     {
         private readonly AgenciesContext _context;
 
-        public ReservationDbOrmRepo(string connectionString)
+        public ReservationDbOrmRepo(AgenciesContext context)
         {
-            _context = DBUtils.GetDbContext(connectionString);
+            _context = context;
         }
 
         public IEnumerable<Reservation> GetAll()
         {
             var reservationEntities = _context.Reservations.ToArray();
+            foreach (var r in reservationEntities) {
+                r.Trip = _context.Trips.Single(t => t.Id == r.TripId);
+                r.Agency = _context.Agencies.Single(a => a.Name == r.AgencyId);
+            }
             IEnumerable<Reservation> reservations = reservationEntities
-                .Select(r => EntityUtils.ReservationEntityToReservation(r));
+                .Select(r => EntityUtils.ReservationEntityToReservation(r))
+                .ToList();
             return reservations;
-        }
-
-        public int getAvailableSeatsForTrip(Trip trip)
-        {
-            throw new NotImplementedException();
         }
 
         public Reservation GetById(Tuple<string, Trip> id)
@@ -39,11 +37,12 @@ namespace Persistence.orm.repos
             return reservation;
         }
 
-        public void Save(Reservation elem)
+        public Reservation Save(Reservation elem)
         {
             var reservationEntity = EntityUtils.ReservationToReservationEntity(elem);
             _context.Reservations.Add(reservationEntity);
             _context.SaveChanges();
+            return EntityUtils.ReservationEntityToReservation(reservationEntity);
         }
     }
 }

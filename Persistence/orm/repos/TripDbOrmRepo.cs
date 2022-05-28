@@ -10,9 +10,9 @@ namespace Persistence.orm.repos
     {
         private readonly AgenciesContext _context;
 
-        public TripDbOrmRepo(string connectionString)
+        public TripDbOrmRepo(AgenciesContext context)
         {
-            _context = DBUtils.GetDbContext(connectionString);
+            _context = context;
         }
 
         public IEnumerable<Trip> GetAll()
@@ -25,7 +25,9 @@ namespace Persistence.orm.repos
 
         public Trip GetById(int id)
         {
-            var tripEntity = _context.Trips.Find(id);
+            var tripEntity = _context.Trips.SingleOrDefault(t => t.Id.Equals(id));
+            if (tripEntity == null)
+                return null;
             var trip = EntityUtils.TripEntityToTrip(tripEntity);
             return trip;
         }
@@ -41,11 +43,36 @@ namespace Persistence.orm.repos
             return trips;
         }
 
-        public void Save(Trip elem)
+        public Trip Save(Trip elem)
         {
             var tripEntity = EntityUtils.TripToTripEntity(elem);
             _context.Trips.Add(tripEntity);
             _context.SaveChanges();
+            return EntityUtils.TripEntityToTrip(tripEntity);
+        }
+
+        public Trip Update(int id, Trip elem)
+        {
+            var tripEntity = _context.Trips.SingleOrDefault(t => t.Id.Equals(id));
+            if (tripEntity == null)
+                return null;
+            tripEntity.TouristAttraction = elem.TouristAttraction;
+            tripEntity.TransportCompany = elem.TransportCompany;
+            tripEntity.DepartureTime = elem.DepartureTime;
+            tripEntity.Price = elem.Price;
+            tripEntity.Seats = elem.Seats;
+            _context.SaveChanges();
+            return EntityUtils.TripEntityToTrip(tripEntity);
+        }
+
+        public Trip Delete(int id)
+        {
+            var tripEntity = _context.Trips.SingleOrDefault(t => t.Id.Equals(id));
+            if (tripEntity == null)
+                return null;
+            _context.Trips.Remove(tripEntity);
+            _context.SaveChanges();
+            return EntityUtils.TripEntityToTrip(tripEntity);
         }
     }
 }
