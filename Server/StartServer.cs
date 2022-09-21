@@ -50,8 +50,8 @@ namespace Server
             ReservationService reservationService = new(reservationRepo);
             INotificationService notifSrv = new NotificationServiceImpl();
 
-            //Service service = new(agencyService, tripService, reservationService);
-            ServerAMS service = new(agencyService, tripService, reservationService, notifSrv);
+            Service service = new(agencyService, tripService, reservationService);
+            //ServerAMS service = new(agencyService, tripService, reservationService, notifSrv);
 
             //string host = "127.0.0.1";
             //int port = 55553;
@@ -61,9 +61,9 @@ namespace Server
             Console.WriteLine("Port " + port);
 
             AbstractServer server;
-            //server = new RpcConcurrentServer(host, port, service);
+            server = new RpcConcurrentServer(host, port, service);
             //server = new ProtoServer(host, port, service);
-            server = new RpcAMSConcurrentServer(host, port, service);
+            //server = new RpcAMSConcurrentServer(host, port, service);
 
             server.Start();
         }
